@@ -1,5 +1,5 @@
 <h2 align="center">
-  🌴 Tree Versatile
+  🌴 Versatile Tree
 </h2>
 <h3 align="center">
   A highly versatile tree structure for JavaScript.

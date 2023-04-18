@@ -1,7 +1,7 @@
 import { create } from '@storybook/theming';
 import packageJson from '../package.json';
 
-const brandTitle = `🌴 Tree Lib`; // packageJson.name;
+const brandTitle = `🌴 Versatile Tree`; // packageJson.name;
 const brandUrl = packageJson.homepage;
 const base = 'light'; // 'dark'
 const brandImage = undefined; // `/brand.svg`; // 150x30
