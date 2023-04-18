@@ -1,6 +1,6 @@
 {
   "name": "tree-versatile",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Justin Mahar <contact@justinmahar.com>",
   "description": "A library for manipulating tree structures in JavaScript.",
   "homepage": "https://justinmahar.github.io/tree-versatile/",
