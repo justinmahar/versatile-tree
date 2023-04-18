@@ -1,9 +1,9 @@
 {
-  "name": "tree-versatile",
+  "name": "versatile-tree",
   "version": "1.0.1",
   "author": "Justin Mahar <contact@justinmahar.com>",
   "description": "A highly versatile tree structure for JavaScript.",
-  "homepage": "https://justinmahar.github.io/tree-versatile/",
+  "homepage": "https://justinmahar.github.io/versatile-tree/",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
@@ -21,10 +21,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/justinmahar/tree-versatile.git"
+    "url": "git+https://github.com/justinmahar/versatile-tree.git"
   },
   "bugs": {
-    "url": "https://github.com/justinmahar/tree-versatile/issues"
+    "url": "https://github.com/justinmahar/versatile-tree/issues"
   },
   "keywords": [
     "tree",

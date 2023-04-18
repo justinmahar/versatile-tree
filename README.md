@@ -5,15 +5,15 @@
   A highly versatile tree structure for JavaScript.
 </h3>
 <p align="center">
-  <a href="https://badge.fury.io/js/tree-versatile" target="_blank" rel="noopener noreferrer"><img src="https://badge.fury.io/js/tree-versatile.svg" alt="npm Version" /></a>&nbsp;
-  <a href="https://github.com/justinmahar/tree-versatile/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/GitHub-Source-success" alt="View project on GitHub" /></a>&nbsp;
-  <a href="https://github.com/justinmahar/tree-versatile/actions?query=workflow%3ADeploy" target="_blank" rel="noopener noreferrer"><img src="https://github.com/justinmahar/tree-versatile/workflows/Deploy/badge.svg" alt="Deploy Status" /></a>&nbsp;
+  <a href="https://badge.fury.io/js/versatile-tree" target="_blank" rel="noopener noreferrer"><img src="https://badge.fury.io/js/versatile-tree.svg" alt="npm Version" /></a>&nbsp;
+  <a href="https://github.com/justinmahar/versatile-tree/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/GitHub-Source-success" alt="View project on GitHub" /></a>&nbsp;
+  <a href="https://github.com/justinmahar/versatile-tree/actions?query=workflow%3ADeploy" target="_blank" rel="noopener noreferrer"><img src="https://github.com/justinmahar/versatile-tree/workflows/Deploy/badge.svg" alt="Deploy Status" /></a>&nbsp;
   <a href="https://github.com/sponsors/justinmahar" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" alt="Sponsor"/></a>
 </p>
 
 ## Documentation
 
-Read the **[official documentation](https://justinmahar.github.io/tree-versatile/)**.
+Read the **[official documentation](https://justinmahar.github.io/versatile-tree/)**.
 
 ## Overview
 
@@ -40,7 +40,7 @@ See the Quick Start section below for examples.
 
 If this project helped you, please consider buying me a coffee. Your support is much appreciated!
 
-<a href="https://paypal.me/thejustinmahar/5"><img src="https://justinmahar.github.io/tree-versatile/support/coffee-1.png" alt="Buy me a coffee" height="35" /></a> <a href="https://paypal.me/thejustinmahar/15"><img src="https://justinmahar.github.io/tree-versatile/support/coffee-3.png" alt="Buy me 3 coffees" height="35" /></a> <a href="https://paypal.me/thejustinmahar/25"><img src="https://justinmahar.github.io/tree-versatile/support/coffee-5.png" alt="Buy me 5 coffees" height="35" /></a>
+<a href="https://paypal.me/thejustinmahar/5"><img src="https://justinmahar.github.io/versatile-tree/support/coffee-1.png" alt="Buy me a coffee" height="35" /></a> <a href="https://paypal.me/thejustinmahar/15"><img src="https://justinmahar.github.io/versatile-tree/support/coffee-3.png" alt="Buy me 3 coffees" height="35" /></a> <a href="https://paypal.me/thejustinmahar/25"><img src="https://justinmahar.github.io/versatile-tree/support/coffee-5.png" alt="Buy me 5 coffees" height="35" /></a>
 
 [/lock:donate]::---------------------------------------🚫
 
@@ -62,13 +62,13 @@ If this project helped you, please consider buying me a coffee. Your support is 
 ## Installation
 
 ```
-npm i tree-versatile
+npm i versatile-tree
 ```
 
 ## Quick Start
 
 ```js
-import { TreeNode, Tree } from 'tree-versatile';
+import { TreeNode, Tree } from 'versatile-tree';
 
 const tree = new Tree();
 const node = tree.addChildData({id: 1});
@@ -110,10 +110,10 @@ For major changes, open an issue first to discuss what you'd like to change.
 
 [/lock:contributing]::---------------------------------------🚫
 
-## ⭐ Found It Helpful? [Star It!](https://github.com/justinmahar/tree-versatile/stargazers)
+## ⭐ Found It Helpful? [Star It!](https://github.com/justinmahar/versatile-tree/stargazers)
 
-If you found this project helpful, let the community know by giving it a [star](https://github.com/justinmahar/tree-versatile/stargazers): [👉⭐](https://github.com/justinmahar/tree-versatile/stargazers)
+If you found this project helpful, let the community know by giving it a [star](https://github.com/justinmahar/versatile-tree/stargazers): [👉⭐](https://github.com/justinmahar/versatile-tree/stargazers)
 
 ## License
 
-See [LICENSE.md](https://justinmahar.github.io/tree-versatile/?path=/story/license--page).
+See [LICENSE.md](https://justinmahar.github.io/versatile-tree/?path=/story/license--page).
