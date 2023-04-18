@@ -432,7 +432,7 @@ class TreeNode {
      * @param index Optional. The index for the new sibling.
      * @throws Throws an error if called at the root.
      */
-    addSibling(node, index) {
+    addSiblingNode(node, index) {
         if (!this.isRoot()) {
             const siblings = this.getSiblings();
             if (typeof index === 'number') {
@@ -445,6 +445,22 @@ class TreeNode {
         else {
             throw new Error('TreeNode: Cannot add sibling to root.');
         }
+    }
+    /**
+     * Creates a TreeNode with the data provided and adds it as a sibling. Returns the newly created TreeNode.
+     *
+     * If you attempt to call this function at the root, an error will be thrown, as root nodes cannot have siblings.
+     * To prevent this, use `isRoot()` to check if you're at the root.
+     *
+     * @param data The sibling data. A new node will be created from this data.
+     * @param index The index at which to add the sibling. Pass `undefined` to add to the end of the siblings.
+     *
+     * @returns The newly created TreeNode.
+     */
+    addSiblingData(data = {}, index) {
+        const treeNode = new TreeNode(data, this.options);
+        this.addSiblingNode(treeNode, index);
+        return treeNode;
     }
     /**
      * Returns this node's index among its siblings.
