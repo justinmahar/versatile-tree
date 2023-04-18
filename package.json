@@ -26,7 +26,32 @@
   "bugs": {
     "url": "https://github.com/justinmahar/tree-versatile/issues"
   },
-  "keywords": [],
+  "keywords": [
+    "tree",
+    "structure",
+    "node",
+    "branch",
+    "versatile",
+    "javascript",
+    "typescript",
+    "js",
+    "ts",
+    "search",
+    "find",
+    "leaf",
+    "sibling",
+    "root",
+    "child",
+    "children",
+    "sibling",
+    "siblings",
+    "hierarchy",
+    "hierarchical",
+    "traverse",
+    "traversal",
+    "manipulation",
+    "data"
+  ],
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@mdx-js/react": "^1.6.22",
