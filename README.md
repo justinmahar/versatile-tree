@@ -1,23 +1,33 @@
 <h2 align="center">
-  🌴 Tree Lib
+  🌴 Tree Versatile
 </h2>
 <h3 align="center">
-  A library for manipulating tree structures in JavaScript.
+  A highly versatile tree structure for JavaScript.
 </h3>
 <p align="center">
-  <a href="https://badge.fury.io/js/tree-lib" target="_blank" rel="noopener noreferrer"><img src="https://badge.fury.io/js/tree-lib.svg" alt="npm Version" /></a>&nbsp;
-  <a href="https://github.com/justinmahar/tree-lib/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/GitHub-Source-success" alt="View project on GitHub" /></a>&nbsp;
-  <a href="https://github.com/justinmahar/tree-lib/actions?query=workflow%3ADeploy" target="_blank" rel="noopener noreferrer"><img src="https://github.com/justinmahar/tree-lib/workflows/Deploy/badge.svg" alt="Deploy Status" /></a>&nbsp;
+  <a href="https://badge.fury.io/js/tree-versatile" target="_blank" rel="noopener noreferrer"><img src="https://badge.fury.io/js/tree-versatile.svg" alt="npm Version" /></a>&nbsp;
+  <a href="https://github.com/justinmahar/tree-versatile/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/GitHub-Source-success" alt="View project on GitHub" /></a>&nbsp;
+  <a href="https://github.com/justinmahar/tree-versatile/actions?query=workflow%3ADeploy" target="_blank" rel="noopener noreferrer"><img src="https://github.com/justinmahar/tree-versatile/workflows/Deploy/badge.svg" alt="Deploy Status" /></a>&nbsp;
   <a href="https://github.com/sponsors/justinmahar" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" alt="Sponsor"/></a>
 </p>
 
 ## Documentation
 
-Read the **[official documentation](https://justinmahar.github.io/tree-lib/)**.
+Read the **[official documentation](https://justinmahar.github.io/tree-versatile/)**.
 
 ## Overview
 
-This section will contain an overview so people can have a high-level understanding of the project.
+This library contains a highly versatile tree structure for JavaScript.
+
+The `TreeNode` class is simple yet highly versatile: 
+
+- It can store arbitrary `data` and `children` and can be constructed from an object. 
+- When not at the root, it can access its siblings, children, and root, and can be searched.
+- It can be converted to an object, to JSON, and from JSON easily.
+
+See the Quick Start section below for examples.
+
+> Note: A `Tree` alias exists for `TreeNode` -- in this library, they are interchangeable.
 
 ### Features include:
 
@@ -30,7 +40,7 @@ This section will contain an overview so people can have a high-level understand
 
 If this project helped you, please consider buying me a coffee. Your support is much appreciated!
 
-<a href="https://paypal.me/thejustinmahar/5"><img src="https://justinmahar.github.io/tree-lib/support/coffee-1.png" alt="Buy me a coffee" height="35" /></a> <a href="https://paypal.me/thejustinmahar/15"><img src="https://justinmahar.github.io/tree-lib/support/coffee-3.png" alt="Buy me 3 coffees" height="35" /></a> <a href="https://paypal.me/thejustinmahar/25"><img src="https://justinmahar.github.io/tree-lib/support/coffee-5.png" alt="Buy me 5 coffees" height="35" /></a>
+<a href="https://paypal.me/thejustinmahar/5"><img src="https://justinmahar.github.io/tree-versatile/support/coffee-1.png" alt="Buy me a coffee" height="35" /></a> <a href="https://paypal.me/thejustinmahar/15"><img src="https://justinmahar.github.io/tree-versatile/support/coffee-3.png" alt="Buy me 3 coffees" height="35" /></a> <a href="https://paypal.me/thejustinmahar/25"><img src="https://justinmahar.github.io/tree-versatile/support/coffee-5.png" alt="Buy me 5 coffees" height="35" /></a>
 
 [/lock:donate]::---------------------------------------🚫
 
@@ -52,13 +62,13 @@ If this project helped you, please consider buying me a coffee. Your support is 
 ## Installation
 
 ```
-npm i tree-lib
+npm i tree-versatile
 ```
 
 ## Quick Start
 
 ```js
-import { TreeNode, Tree } from 'tree-lib';
+import { TreeNode, Tree } from 'tree-versatile';
 
 const tree = new Tree();
 const node = tree.addChildData({id: 1});
@@ -99,10 +109,10 @@ For major changes, open an issue first to discuss what you'd like to change.
 
 [/lock:contributing]::---------------------------------------🚫
 
-## ⭐ Found It Helpful? [Star It!](https://github.com/justinmahar/tree-lib/stargazers)
+## ⭐ Found It Helpful? [Star It!](https://github.com/justinmahar/tree-versatile/stargazers)
 
-If you found this project helpful, let the community know by giving it a [star](https://github.com/justinmahar/tree-lib/stargazers): [👉⭐](https://github.com/justinmahar/tree-lib/stargazers)
+If you found this project helpful, let the community know by giving it a [star](https://github.com/justinmahar/tree-versatile/stargazers): [👉⭐](https://github.com/justinmahar/tree-versatile/stargazers)
 
 ## License
 
-See [LICENSE.md](https://justinmahar.github.io/tree-lib/?path=/story/license--page).
+See [LICENSE.md](https://justinmahar.github.io/tree-versatile/?path=/story/license--page).
