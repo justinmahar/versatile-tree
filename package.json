@@ -2,7 +2,7 @@
   "name": "tree-versatile",
   "version": "0.0.4",
   "author": "Justin Mahar <contact@justinmahar.com>",
-  "description": "A library for manipulating tree structures in JavaScript.",
+  "description": "A highly versatile tree structure for JavaScript.",
   "homepage": "https://justinmahar.github.io/tree-versatile/",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
