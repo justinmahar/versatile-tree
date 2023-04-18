@@ -73,9 +73,10 @@ import { TreeNode, Tree } from 'tree-versatile';
 const tree = new Tree();
 const node = tree.addChildData({id: 1});
 node.addChildData({id: 2});
+node.addSiblingData({id: 3})
 
-// Convert to JSON
-const treeJson = node.toJSON();
+// Convert entire tree to JSON
+const treeJson = node.getRoot().toJSON();
 
 // Build tree from JSON
 const builtTree = TreeNode.fromJSON(treeJson);
