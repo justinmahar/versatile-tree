@@ -347,7 +347,7 @@ export declare class TreeNode {
      */
     getRoot(): TreeNode;
     /**
-     * Searches the tree node and its children for a node that passes the test defined by the matcher function provided.
+     * Searches the tree node and its children for the first node that passes the test defined by the matcher function provided.
      *
      * The found node is returned. If not found, `undefined` is returned.
      *
@@ -358,7 +358,20 @@ export declare class TreeNode {
      * @param rightToLeft Optional. When true, searching will traverse the tree using depth-first right-to-left preorder traversal.
      * @returns The found node, or `undefined` if not found.
      */
-    find(predicate: (node: TreeNode) => boolean, rightToLeft?: boolean): TreeNode | undefined;
+    findFirst(predicate: (node: TreeNode) => boolean, rightToLeft?: boolean): TreeNode | undefined;
+    /**
+     * Searches the tree node and its children for all nodes that pass the test defined by the matcher function provided.
+     *
+     * The found nodes are returned as an array of TreeNode.
+     *
+     * The find algorithm uses [depth-first left-to-right preorder traversal](https://en.wikipedia.org/wiki/Tree_traversal#Pre-order,_NLR) by default.
+     * You can pass `rightToLeft` argument as `true` to use [depth-first right-to-left preorder traversal](https://en.wikipedia.org/wiki/Tree_traversal#Reverse_pre-order,_NRL) instead.
+     *
+     * @param predicate A function used to match the nodes being searched for. This function is passed a node and returns true if the node is a match.
+     * @param rightToLeft Optional. When true, searching will traverse the tree using depth-first right-to-left preorder traversal.
+     * @returns A `TreeNode[]` array containing all found nodes.
+     */
+    findAll(predicate: (node: TreeNode) => boolean, rightToLeft?: boolean): TreeNode[];
     /**
      * Finds and returns the node with the provided id (using `===` comparison), or returns `undefined` if not found.
      *
@@ -374,6 +387,19 @@ export declare class TreeNode {
      * @returns The node with the provided id, or `undefined` if not found.
      */
     findById(id: any, idPropertyName?: string, rightToLeft?: boolean): TreeNode | undefined;
+    /**
+     * Walk the tree node and its children, calling the visit function on each node.
+     *
+     * If the visit function returns true at any point, walking is aborted.
+     *
+     * The walk algorithm uses [depth-first left-to-right preorder traversal](https://en.wikipedia.org/wiki/Tree_traversal#Pre-order,_NLR) by default.
+     * You can pass `rightToLeft` argument as `true` to use [depth-first right-to-left preorder traversal](https://en.wikipedia.org/wiki/Tree_traversal#Reverse_pre-order,_NRL) instead.
+     *
+     * @param visit A visit function called on every node traversed. If the visit function returns true at any point, walking is aborted.
+     * @param rightToLeft Optional. When true, it will traverse the tree using depth-first right-to-left preorder traversal.
+     * @returns True if the traversal was aborted, false otherwise.
+     */
+    walk(visit: (node: TreeNode) => boolean | void, rightToLeft?: boolean): boolean;
     /**
      * Returns an object containing the tree node data including all nested children.
      *
