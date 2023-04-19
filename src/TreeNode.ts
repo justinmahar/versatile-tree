@@ -578,7 +578,7 @@ export class TreeNode {
   }
 
   /**
-   * Searches the tree node and its children for a node that passes the test defined by the matcher function provided.
+   * Searches the tree node and its children for the first node that passes the test defined by the matcher function provided.
    *
    * The found node is returned. If not found, `undefined` is returned.
    *
@@ -589,31 +589,38 @@ export class TreeNode {
    * @param rightToLeft Optional. When true, searching will traverse the tree using depth-first right-to-left preorder traversal.
    * @returns The found node, or `undefined` if not found.
    */
-  public find(predicate: (node: TreeNode) => boolean, rightToLeft?: boolean): TreeNode | undefined {
+  public findFirst(predicate: (node: TreeNode) => boolean, rightToLeft?: boolean): TreeNode | undefined {
     let foundNode: TreeNode | undefined = undefined;
-    if (predicate(this)) {
-      foundNode = this;
-    }
-    if (!foundNode) {
-      if (rightToLeft) {
-        for (let i = this.children.length - 1; i >= 0; i--) {
-          const childNode = this.children[i];
-          foundNode = childNode.find(predicate, rightToLeft);
-          if (foundNode) {
-            break;
-          }
-        }
-      } else {
-        for (let i = 0; i < this.children.length; i++) {
-          const childNode = this.children[i];
-          foundNode = childNode.find(predicate, rightToLeft);
-          if (foundNode) {
-            break;
-          }
-        }
+    this.walk((n) => {
+      const found = predicate(n);
+      if (found) {
+        foundNode = n;
       }
-    }
+      return found; // Return `found` to abort when true
+    });
     return foundNode;
+  }
+
+  /**
+   * Searches the tree node and its children for all nodes that pass the test defined by the matcher function provided.
+   *
+   * The found nodes are returned as an array of TreeNode.
+   *
+   * The find algorithm uses [depth-first left-to-right preorder traversal](https://en.wikipedia.org/wiki/Tree_traversal#Pre-order,_NLR) by default.
+   * You can pass `rightToLeft` argument as `true` to use [depth-first right-to-left preorder traversal](https://en.wikipedia.org/wiki/Tree_traversal#Reverse_pre-order,_NRL) instead.
+   *
+   * @param predicate A function used to match the nodes being searched for. This function is passed a node and returns true if the node is a match.
+   * @param rightToLeft Optional. When true, searching will traverse the tree using depth-first right-to-left preorder traversal.
+   * @returns A `TreeNode[]` array containing all found nodes.
+   */
+  public findAll(predicate: (node: TreeNode) => boolean, rightToLeft?: boolean): TreeNode[] {
+    const foundNodes: TreeNode[] = [];
+    this.walk((n) => {
+      if (predicate(n)) {
+        foundNodes.push(n);
+      }
+    });
+    return foundNodes;
   }
 
   /**
@@ -631,7 +638,43 @@ export class TreeNode {
    * @returns The node with the provided id, or `undefined` if not found.
    */
   public findById(id: any, idPropertyName = 'id', rightToLeft?: boolean): TreeNode | undefined {
-    return this.find((node) => node.getData()[idPropertyName] === id, rightToLeft);
+    return this.findFirst((node) => node.getData()[idPropertyName] === id, rightToLeft);
+  }
+
+  /**
+   * Walk the tree node and its children, calling the visit function on each node.
+   *
+   * If the visit function returns true at any point, walking is aborted.
+   *
+   * The walk algorithm uses [depth-first left-to-right preorder traversal](https://en.wikipedia.org/wiki/Tree_traversal#Pre-order,_NLR) by default.
+   * You can pass `rightToLeft` argument as `true` to use [depth-first right-to-left preorder traversal](https://en.wikipedia.org/wiki/Tree_traversal#Reverse_pre-order,_NRL) instead.
+   *
+   * @param visit A visit function called on every node traversed. If the visit function returns true at any point, walking is aborted.
+   * @param rightToLeft Optional. When true, it will traverse the tree using depth-first right-to-left preorder traversal.
+   * @returns True if the traversal was aborted, false otherwise.
+   */
+  public walk(visit: (node: TreeNode) => boolean | void, rightToLeft?: boolean): boolean {
+    const abort = !!visit(this);
+    if (!abort) {
+      if (rightToLeft) {
+        for (let i = this.children.length - 1; i >= 0; i--) {
+          const childNode = this.children[i];
+          const abortChild = childNode.walk(visit, rightToLeft);
+          if (abortChild) {
+            break;
+          }
+        }
+      } else {
+        for (let i = 0; i < this.children.length; i++) {
+          const childNode = this.children[i];
+          const abortChild = childNode.walk(visit, rightToLeft);
+          if (abortChild) {
+            break;
+          }
+        }
+      }
+    }
+    return abort;
   }
 
   /**
