@@ -597,7 +597,7 @@ export class TreeNode {
         foundNode = n;
       }
       return found; // Return `found` to abort when true
-    });
+    }, rightToLeft);
     return foundNode;
   }
 
@@ -619,7 +619,7 @@ export class TreeNode {
       if (predicate(n)) {
         foundNodes.push(n);
       }
-    });
+    }, rightToLeft);
     return foundNodes;
   }
 
