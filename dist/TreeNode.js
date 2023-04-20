@@ -614,25 +614,18 @@ class TreeNode {
      * @returns True if the traversal was aborted, false otherwise.
      */
     walk(visit, rightToLeft) {
-        const abort = !!visit(this);
+        let abort = !!visit(this);
         if (!abort) {
-            if (rightToLeft) {
-                for (let i = this.children.length - 1; i >= 0; i--) {
-                    const childNode = this.children[i];
-                    const abortChild = childNode.walk(visit, rightToLeft);
-                    if (abortChild) {
-                        break;
-                    }
+            let i = rightToLeft ? this.children.length - 1 : 0;
+            const condition = () => (rightToLeft ? i >= 0 : i < this.children.length);
+            const update = () => (rightToLeft ? i-- : i++);
+            while (condition()) {
+                const childNode = this.children[i];
+                abort = childNode.walk(visit, rightToLeft);
+                if (abort) {
+                    break;
                 }
-            }
-            else {
-                for (let i = 0; i < this.children.length; i++) {
-                    const childNode = this.children[i];
-                    const abortChild = childNode.walk(visit, rightToLeft);
-                    if (abortChild) {
-                        break;
-                    }
-                }
+                update();
             }
         }
         return abort;
