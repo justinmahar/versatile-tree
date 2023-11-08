@@ -67,54 +67,54 @@ If this project helped you, please consider buying me a coffee. Your support is 
 - [Table of Contents](#table-of-contents)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
-  - [API](#api)
-    - [TreeNode / Tree](#treenode--tree)
-      - [Class Functions](#class-functions)
-        - [Constructor](#constructor)
-        - [getData](#getdata)
-        - [getChildrenPropertyName](#getchildrenpropertyname)
-        - [hasParent](#hasparent)
-        - [isRoot](#isroot)
-        - [equals](#equals)
-        - [isDescendantOf](#isdescendantof)
-        - [isAncestorOf](#isancestorof)
-        - [addChildNode](#addchildnode)
-        - [addChildData](#addchilddata)
-        - [getNodePath](#getnodepath)
-        - [getSelectionPath](#getselectionpath)
-        - [selectNode](#selectnode)
-        - [getChildren](#getchildren)
-        - [hasChildren](#haschildren)
-        - [getFirstChild](#getfirstchild)
-        - [getLastChild](#getlastchild)
-        - [hasChild](#haschild)
-        - [removeChild](#removechild)
-        - [removeParent](#removeparent)
-        - [getSiblings](#getsiblings)
-        - [getSiblingCount](#getsiblingcount)
-        - [isOnlyChild](#isonlychild)
-        - [getFirstSibling](#getfirstsibling)
-        - [getLastSibling](#getlastsibling)
-        - [getLeftSibling](#getleftsibling)
-        - [getRightSibling](#getrightsibling)
-        - [addSiblingNode](#addsiblingnode)
-        - [addSiblingData](#addsiblingdata)
-        - [getIndex](#getindex)
-        - [indexOfChild](#indexofchild)
-        - [indexOfSibling](#indexofsibling)
-        - [getParent](#getparent)
-        - [isParent](#isparent)
-        - [setParent](#setparent)
-        - [getRoot](#getroot)
-        - [findFirst](#findfirst)
-        - [findAll](#findall)
-        - [findById](#findbyid)
-        - [walk](#walk)
-        - [toObject](#toobject)
-        - [toJSON](#tojson)
-        - [clone](#clone)
-      - [Static Functions](#static-functions)
-        - [fromJSON](#fromjson)
+- [TreeNode/Tree API](#treenodetree-api)
+  - [Class Functions](#class-functions)
+    - [Constructor](#constructor)
+    - [getData](#getdata)
+    - [getChildrenPropertyName](#getchildrenpropertyname)
+    - [hasParent](#hasparent)
+    - [isRoot](#isroot)
+    - [equals](#equals)
+    - [isDescendantOf](#isdescendantof)
+    - [isAncestorOf](#isancestorof)
+- [| `node` | The node to check. |](#-node--the-node-to-check-)
+    - [addChildNode](#addchildnode)
+    - [addChildData](#addchilddata)
+    - [getNodePath](#getnodepath)
+    - [getSelectionPath](#getselectionpath)
+    - [selectNode](#selectnode)
+    - [getChildren](#getchildren)
+    - [hasChildren](#haschildren)
+    - [getFirstChild](#getfirstchild)
+    - [getLastChild](#getlastchild)
+    - [hasChild](#haschild)
+    - [removeChild](#removechild)
+    - [removeParent](#removeparent)
+    - [getSiblings](#getsiblings)
+    - [getSiblingCount](#getsiblingcount)
+    - [isOnlyChild](#isonlychild)
+    - [getFirstSibling](#getfirstsibling)
+    - [getLastSibling](#getlastsibling)
+    - [getLeftSibling](#getleftsibling)
+    - [getRightSibling](#getrightsibling)
+    - [addSiblingNode](#addsiblingnode)
+    - [addSiblingData](#addsiblingdata)
+    - [getIndex](#getindex)
+    - [indexOfChild](#indexofchild)
+    - [indexOfSibling](#indexofsibling)
+    - [getParent](#getparent)
+    - [isParent](#isparent)
+    - [setParent](#setparent)
+    - [getRoot](#getroot)
+    - [findFirst](#findfirst)
+    - [findAll](#findall)
+    - [findById](#findbyid)
+    - [walk](#walk)
+    - [toObject](#toobject)
+    - [toJSON](#tojson)
+    - [clone](#clone)
+  - [Static Functions](#static-functions)
+    - [fromJSON](#fromjson)
 - [TypeScript](#typescript)
 - [Icon Attribution](#icon-attribution)
 - [Contributing](#contributing)
@@ -144,15 +144,13 @@ const treeJson = node.getRoot().toJSON();
 const builtTree = TreeNode.fromJSON(treeJson);
 ```
 
-### API
-
-#### TreeNode / Tree
+## TreeNode/Tree API
 
 A `Tree` simply extends `TreeNode` and can be used as the root node. Both share the same API, defined below.
 
-##### Class Functions
+### Class Functions
 
-###### Constructor
+#### Constructor
 
 ```ts
 new Tree(data: Record<string, any> = {}, options: TreeNodeOptions = TreeNode.defaultTreeNodeOptions)
@@ -182,11 +180,12 @@ In this case, each node will have data containing the `id` property, and all chi
 To turn the TreeNode back into an object at a later time, use `toObject()`, and to turn it into a JSON string, use `toJSON()`.
 To construct a TreeNode from JSON, use `TreeNode.fromJSON()`.
 
-Params:
-- `data` - Optional. An object containing data for the node, plus optional children with subnodes.
-- `options` - Optional (pun intended). The options for the TreeNode. Falls back on `TreeNode.defaultTreeNodeOptions` when not specified.
+| Param     | Description                                                                                                                |
+| --------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `data`    | Optional. An object containing data for the node, plus optional children with subnodes.                                    |
+| `options` | Optional (pun intended). The options for the TreeNode. Falls back on `TreeNode.defaultTreeNodeOptions` when not specified. |
 
-###### getData
+#### getData
 
 ```ts
 getData()
@@ -196,20 +195,22 @@ Return the data for this node, without the children property.
 
 To get data and all descendants, including children, for this node, use `toObject()`.
 
-Returns:
-- The data for this node, without the children property.
+| Returns                                                |
+| ------------------------------------------------------ |
+| The data for this node, without the children property. |
 
-###### getChildrenPropertyName
+#### getChildrenPropertyName
 
 ```ts
 getChildrenPropertyName()
 ```
 Returns the property name used for children.
 
-Returns:
-- The property name used for children.
+| Returns                              |
+| ------------------------------------ |
+| The property name used for children. |
 
-###### hasParent
+#### hasParent
 
 ```ts
 hasParent(): boolean
@@ -219,10 +220,11 @@ Returns true if this node has a parent, false otherwise.
 
 When a node has no parent, it is the root. You can also use `isRoot()` to check for this case.
 
-Returns:
-- True if this node has a parent, false otherwise.
+| Returns                                          |
+| ------------------------------------------------ |
+| True if this node has a parent, false otherwise. |
 
-###### isRoot
+#### isRoot
 
 ```ts
 isRoot(): boolean
@@ -231,10 +233,11 @@ Returns true if this node is the root (has no parent), false otherwise.
 
 When a node has a parent, it is not the root. You can also use `hasParent()` to check for this case.
 
-Returns:
-- True if this node is the root (has no parent), false otherwise.
+| Returns                                                         |
+| --------------------------------------------------------------- |
+| True if this node is the root (has no parent), false otherwise. |
 
-###### equals
+#### equals
 
 ```ts
 equals(node: TreeNode): boolean
@@ -244,12 +247,14 @@ Returns true if the provided node is equal to this node.
 
 This operation uses the equals function provided in the TreeNode options, and uses `===` equality by default when an equals function is not specified.
 
-Params:
-- `node` - The node to check for equality.
-Returns:
-- True if the provided node is equal to this node.
+| Param                                            | Description                     |
+| ------------------------------------------------ | ------------------------------- |
+| `node`                                           | The node to check for equality. |
+| Returns                                          |
+| ---                                              |
+| True if the provided node is equal to this node. |
 
-###### isDescendantOf
+#### isDescendantOf
 
 ```ts
 isDescendantOf(node: TreeNode)
@@ -257,26 +262,30 @@ isDescendantOf(node: TreeNode)
 
 Returns true if this node is a descendant of, or below, the provided node. False otherwise.
 
-Params:
-- `node` - The node to check.
+| Param  | Description        |
+| ------ | ------------------ |
+| `node` | The node to check. |
 
-Returns:
-- True if this node is a descendant of, or below, the provided node. False otherwise.
+| Returns                                                                             |
+| ----------------------------------------------------------------------------------- |
+| True if this node is a descendant of, or below, the provided node. False otherwise. |
 
-###### isAncestorOf
+#### isAncestorOf
 
 ```ts
 isAncestorOf(node: TreeNode)
 ```
 Returns true if this node is an ancestor of, or above, the provided node. False otherwise.
 
-Params:
-- `node` - The node to check.
+| Param  | Description        |
+| ------ | ------------------ |
+| `node` | The node to check. |
 - 
-Returns:
-- True if this node is an ancestor of, or above, the provided node. False otherwise.
+| Returns                                                                            |
+| ---------------------------------------------------------------------------------- |
+| True if this node is an ancestor of, or above, the provided node. False otherwise. |
 
-###### addChildNode
+#### addChildNode
 
 ```ts
 addChildNode(node: TreeNode, index?: number, allowCircularReferences?: boolean)
@@ -290,27 +299,31 @@ In addition, if the provided node is an ancestor to this node, this node will be
 This prevents adding an ancestor as a child to create a loop, also known as a circular reference.
 You disable this protection by setting `allowCircularReferences` to true.
 
-Params:
-- `node` - The node to add as a child.
-- `index` - Optional. The index at which to insert the child. If `undefined`, the child will be added to the end.
-- `allowCircularReferences` - Optional. Set to `true` to allow circular references.
+| Param                     | Description                                                                                           |
+| ------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `node`                    | The node to add as a child.                                                                           |
+| `index`                   | Optional. The index at which to insert the child. If `undefined`, the child will be added to the end. |
+| `allowCircularReferences` | Optional. Set to `true` to allow circular references.                                                 |
 
-###### addChildData
+#### addChildData
 
 ```ts
 addChildData(data: Record<string, any> = {}, index?: number): TreeNode
 ```
 Creates a TreeNode with the data provided and adds it as a child. Returns the newly created TreeNode.
 
-Params:
-- `data` - The child data. A new node will be created from this data.
-Params:
-- `index` - The index at which to add the child. Pass `undefined` to add to the end of the children.
+| Param   | Description                                                                              |
+| ------- | ---------------------------------------------------------------------------------------- |
+| `data`  | The child data. A new node will be created from this data.                               |
+| Param   | Description                                                                              |
+| -----   | -----                                                                                    |
+| `index` | The index at which to add the child. Pass `undefined` to add to the end of the children. |
 
-Returns:
-- The newly created TreeNode.
+| Returns                     |
+| --------------------------- |
+| The newly created TreeNode. |
 
-###### getNodePath
+#### getNodePath
 
 ```ts
 getNodePath(): TreeNode[]
@@ -318,10 +331,11 @@ getNodePath(): TreeNode[]
 
 Returns an array containing all nodes in the tree leading to this one, starting with the root.
 
-Returns:
-- An array containing all nodes in the tree leading to this one, starting with the root.
+| Returns                                                                                |
+| -------------------------------------------------------------------------------------- |
+| An array containing all nodes in the tree leading to this one, starting with the root. |
 
-###### getSelectionPath
+#### getSelectionPath
 
 ```ts
 getSelectionPath(): number[]
@@ -357,10 +371,11 @@ The selection path for the node with `id: 4` would be:
 
 Selecting the node using this path is nearly instantaneous.
 
-Returns:
-- An array of sibling index positions of all nodes leading to this one.
+| Returns                                                               |
+| --------------------------------------------------------------------- |
+| An array of sibling index positions of all nodes leading to this one. |
 
-###### selectNode
+#### selectNode
 
 ```ts
 selectNode(selectionPath: number[]): TreeNode | undefined
@@ -377,33 +392,37 @@ The speed of selection is constant time, O(1), as you know exactly where to find
 
 See `getSelectionPath()` for more.
 
-Params:
-- `selectionPath` - The selection path for the TreeNode as an array of sibling indexes leading to the desired node.
+| Param           | Description                                                                                     |
+| --------------- | ----------------------------------------------------------------------------------------------- |
+| `selectionPath` | The selection path for the TreeNode as an array of sibling indexes leading to the desired node. |
 
-Returns:
-- The selected TreeNode, or `undefined` if not found.
+| Returns                                             |
+| --------------------------------------------------- |
+| The selected TreeNode, or `undefined` if not found. |
 
-###### getChildren
+#### getChildren
 
 ```ts
 getChildren(): TreeNode[]
 ```
 Returns the children for this node.
 
-Returns:
-- The children for this node.
+| Returns                     |
+| --------------------------- |
+| The children for this node. |
 
-###### hasChildren
+#### hasChildren
 
 ```ts
 hasChildren(): boolean
 ```
 Returns true if this node has children. False otherwise.
 
-Returns:
-- True if this node has children. False otherwise.
+| Returns                                          |
+| ------------------------------------------------ |
+| True if this node has children. False otherwise. |
 
-###### getFirstChild
+#### getFirstChild
 
 ```ts
 getFirstChild(): TreeNode | undefined
@@ -411,10 +430,11 @@ getFirstChild(): TreeNode | undefined
 
 Returns the first child in this node's list of children, or `undefined` if there are no children.
 
-Returns:
-- The first child in this node's list of children, or `undefined` if there are no children.
+| Returns                                                                                   |
+| ----------------------------------------------------------------------------------------- |
+| The first child in this node's list of children, or `undefined` if there are no children. |
 
-###### getLastChild
+#### getLastChild
 
 ```ts
 getLastChild(): TreeNode | undefined
@@ -422,10 +442,11 @@ getLastChild(): TreeNode | undefined
 
 Returns the last child in this node's list of children, or `undefined` if there are no children.
 
-Returns:
-- The last child in this node's list of children, or `undefined` if there are no children.
+| Returns                                                                                  |
+| ---------------------------------------------------------------------------------------- |
+| The last child in this node's list of children, or `undefined` if there are no children. |
 
-###### hasChild
+#### hasChild
 
 ```ts
 hasChild(node: TreeNode)
@@ -435,13 +456,15 @@ Returns true if this node has the provided node in its direct list of children. 
 
 You can use `isDescendant(node)` to check for a child relationship along the entire tree hierarchy.
 
-Params:
-- `node` - The node to search for.
+| Param  | Description             |
+| ------ | ----------------------- |
+| `node` | The node to search for. |
 
-Returns:
-- True if this node has the provided node in its direct list of children. False otherwise.
+| Returns                                                                                  |
+| ---------------------------------------------------------------------------------------- |
+| True if this node has the provided node in its direct list of children. False otherwise. |
 
-###### removeChild
+#### removeChild
 
 ```ts
 removeChild(node: TreeNode): boolean
@@ -452,13 +475,15 @@ Removes the provided node from this node's list of children and sets the provide
 
 Returns `true` if the node was successfully removed. Returns `false` if the node was not found.
 
-Params:
-- `node` - The node to remove.
+| Param  | Description         |
+| ------ | ------------------- |
+| `node` | The node to remove. |
 
-Returns:
-- True if the node was removed. False if it was not found.
+| Returns                                                  |
+| -------------------------------------------------------- |
+| True if the node was removed. False if it was not found. |
 
-###### removeParent
+#### removeParent
 
 ```ts
 removeParent(): boolean
@@ -469,20 +494,22 @@ Removes this node from its parent and sets this node's parent to `undefined`.
 
 Returns `true` if this node was successfully removed from its parent, `false` otherwise.
 
-Returns:
-- True if this node was removed from its parent, false otherwise.
+| Returns                                                         |
+| --------------------------------------------------------------- |
+| True if this node was removed from its parent, false otherwise. |
 
-###### getSiblings
+#### getSiblings
 
 ```ts
 getSiblings(): TreeNode[]
 ```
 Returns an array of all siblings for this node.
 
-Returns:
-- An array of all siblings for this node.
+| Returns                                 |
+| --------------------------------------- |
+| An array of all siblings for this node. |
 
-###### getSiblingCount
+#### getSiblingCount
 
 ```ts
 getSiblingCount(): number
@@ -490,10 +517,11 @@ getSiblingCount(): number
 
 Returns the number of siblings this node has including itself.
 
-Returns:
-- The number of siblings this node has including itself.
+| Returns                                                |
+| ------------------------------------------------------ |
+| The number of siblings this node has including itself. |
 
-###### isOnlyChild
+#### isOnlyChild
 
 ```ts
 isOnlyChild(): boolean
@@ -501,10 +529,11 @@ isOnlyChild(): boolean
 
 Returns true if this node is an only child (has no other siblings), false otherwise.
 
-Returns:
-- True if this node is an only child (has no other siblings), false otherwise.
+| Returns                                                                      |
+| ---------------------------------------------------------------------------- |
+| True if this node is an only child (has no other siblings), false otherwise. |
 
-###### getFirstSibling
+#### getFirstSibling
 
 ```ts
 getFirstSibling(): TreeNode
@@ -512,10 +541,11 @@ getFirstSibling(): TreeNode
 
 Returns the first sibling in this node's list of siblings.
 
-Returns:
-- The first sibling in this node's list of siblings.
+| Returns                                            |
+| -------------------------------------------------- |
+| The first sibling in this node's list of siblings. |
 
-###### getLastSibling
+#### getLastSibling
 
 ```ts
 getLastSibling(): TreeNode
@@ -523,10 +553,11 @@ getLastSibling(): TreeNode
 
 Returns the last sibling in this node's list of siblings.
 
-Returns:
-- The last sibling in this node's list of siblings.
+| Returns                                           |
+| ------------------------------------------------- |
+| The last sibling in this node's list of siblings. |
 
-###### getLeftSibling
+#### getLeftSibling
 
 ```ts
 getLeftSibling(): TreeNode | undefined
@@ -534,20 +565,22 @@ getLeftSibling(): TreeNode | undefined
 
 Returns the sibling to the left of this node, or `undefined` if there is none.
 
-Returns:
-- The sibling to the left of this node, or `undefined` if there is none.
+| Returns                                                                |
+| ---------------------------------------------------------------------- |
+| The sibling to the left of this node, or `undefined` if there is none. |
 
-###### getRightSibling
+#### getRightSibling
 
 ```ts
 getRightSibling(): TreeNode | undefined
 ```
 Returns the sibling to the right of this node, or `undefined` if there is none.
 
-Returns:
-- The sibling to the right of this node, or `undefined` if there is none.
+| Returns                                                                 |
+| ----------------------------------------------------------------------- |
+| The sibling to the right of this node, or `undefined` if there is none. |
 
-###### addSiblingNode
+#### addSiblingNode
 
 ```ts
 addSiblingNode(node: TreeNode, index?: number)
@@ -558,14 +591,16 @@ Adds the provided node as a sibling to this node. You can specify an optional si
 If you attempt to call this function at the root, an error will be thrown, as root nodes cannot have siblings.
 To prevent this, use `isRoot()` to check if you're at the root.
 
-Params:
-- `node` - The node to add as a sibling.
-- `index` - Optional. The index for the new sibling.
+| Param   | Description                              |
+| ------- | ---------------------------------------- |
+| `node`  | The node to add as a sibling.            |
+| `index` | Optional. The index for the new sibling. |
 
-Errors thrown:
-- Throws an error if called at the root.
+| Errors Thrown                          |
+| -------------------------------------- |
+| Throws an error if called at the root. |
 
-###### addSiblingData
+#### addSiblingData
 
 ```ts
 addSiblingData(data: Record<string, any> = {}, index?: number): TreeNode
@@ -577,14 +612,16 @@ Creates a TreeNode with the data provided and adds it as a sibling. Returns the 
 If you attempt to call this function at the root, an error will be thrown, as root nodes cannot have siblings.
 To prevent this, use `isRoot()` to check if you're at the root.
 
-Params:
-- `data` - The sibling data. A new node will be created from this data.
-- `index` - The index at which to add the sibling. Pass `undefined` to add to the end of the siblings.
+| Param   | Description                                                                                |
+| ------- | ------------------------------------------------------------------------------------------ |
+| `data`  | The sibling data. A new node will be created from this data.                               |
+| `index` | The index at which to add the sibling. Pass `undefined` to add to the end of the siblings. |
 
-Returns:
-- The newly created TreeNode.
+| Returns                     |
+| --------------------------- |
+| The newly created TreeNode. |
 
-###### getIndex
+#### getIndex
 
 ```ts
 getIndex(): number
@@ -593,10 +630,11 @@ Returns this node's index among its siblings.
 
 Note: The root will always have an index of `0`.
 
-Returns:
-- This node's index among its siblings.
+| Returns                               |
+| ------------------------------------- |
+| This node's index among its siblings. |
 
-###### indexOfChild
+#### indexOfChild
 
 ```ts
 indexOfChild(node: TreeNode): number
@@ -604,13 +642,15 @@ indexOfChild(node: TreeNode): number
 
 Returns the index of the provided node in this node's list of children, or `-1` if it is not found.
 
-Params:
-- `node` - The node for which to find the index in this node's list of children.
+| Param  | Description                                                           |
+| ------ | --------------------------------------------------------------------- |
+| `node` | The node for which to find the index in this node's list of children. |
 
-Returns:
-- The index of the provided node in this node's list of children, or `-1` if it is not found.
+| Returns                                                                                     |
+| ------------------------------------------------------------------------------------------- |
+| The index of the provided node in this node's list of children, or `-1` if it is not found. |
 
-###### indexOfSibling
+#### indexOfSibling
 
 ```ts
 indexOfSibling(node: TreeNode): number
@@ -618,23 +658,26 @@ indexOfSibling(node: TreeNode): number
 
 Returns the index of the provided node in this node's list of siblings, or `-1` if it is not found.
 
-Params:
-- `node` - The node for which to find the index in this node's list of siblings.
+| Param  | Description                                                           |
+| ------ | --------------------------------------------------------------------- |
+| `node` | The node for which to find the index in this node's list of siblings. |
 
-Returns:
-- The index of the provided node in this node's list of siblings, or `-1` if it is not found.
+| Returns                                                                                     |
+| ------------------------------------------------------------------------------------------- |
+| The index of the provided node in this node's list of siblings, or `-1` if it is not found. |
 
-###### getParent
+#### getParent
 
 ```ts
 getParent(): TreeNode | undefined
 ```
 Returns the parent of this node, or `undefined` if there is none.
 
-Returns:
-- The parent of this node, or `undefined` if there is none.
+| Returns                                                   |
+| --------------------------------------------------------- |
+| The parent of this node, or `undefined` if there is none. |
 
-###### isParent
+#### isParent
 
 ```ts
 isParent(node: TreeNode)
@@ -643,23 +686,26 @@ Returns true if the provided node is this node's direct parent, false otherwise.
 
 You can use `isAncestor(node)` to check for a parental relationship along the entire tree hierarchy.
 
-Params:
-- `node` - The node to check.
+| Param  | Description        |
+| ------ | ------------------ |
+| `node` | The node to check. |
 
-Returns:
-- True if the provided node is this node's direct parent, false otherwise.
+| Returns                                                                  |
+| ------------------------------------------------------------------------ |
+| True if the provided node is this node's direct parent, false otherwise. |
 
-###### setParent
+#### setParent
 
 ```ts
 setParent(parent: TreeNode | undefined): void
 ```
 Sets the provided node as the parent of this node. If `parent` is `undefined`, this node will be removed from its parent.
 
-Params:
-- `parent` - The node to set as the new parent.
+| Param    | Description                        |
+| -------- | ---------------------------------- |
+| `parent` | The node to set as the new parent. |
 
-###### getRoot
+#### getRoot
 
 ```ts
 getRoot(): TreeNode
@@ -667,10 +713,11 @@ getRoot(): TreeNode
 
 Returns the root node at the top of the tree hierarchy.
 
-Returns:
-- The root node at the top of the tree hierarchy.
+| Returns                                         |
+| ----------------------------------------------- |
+| The root node at the top of the tree hierarchy. |
 
-###### findFirst
+#### findFirst
 
 ```ts
 findFirst(predicate: (node: TreeNode) => boolean, rightToLeft?: boolean): TreeNode | undefined
@@ -683,14 +730,16 @@ The found node is returned. If not found, `undefined` is returned.
 The find algorithm uses [depth-first left-to-right preorder traversal](https://en.wikipedia.org/wiki/Tree_traversal#Pre-order,_NLR) by default.
 You can pass `rightToLeft` argument as `true` to use [depth-first right-to-left preorder traversal](https://en.wikipedia.org/wiki/Tree_traversal#Reverse_pre-order,_NRL) instead.
 
-Params:
-- `predicate` - A function used to match the node being searched for. This function is passed a node and returns true if the node is a match.
-- `rightToLeft` - Optional. When true, searching will traverse the tree using depth-first right-to-left preorder traversal.
+| Param         | Description                                                                                                                   |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `predicate`   | A function used to match the node being searched for. This function is passed a node and returns true if the node is a match. |
+| `rightToLeft` | Optional. When true, searching will traverse the tree using depth-first right-to-left preorder traversal.                     |
 
-Returns:
-- The found node, or `undefined` if not found.
+| Returns                                      |
+| -------------------------------------------- |
+| The found node, or `undefined` if not found. |
 
-###### findAll
+#### findAll
 
 ```ts
 findAll(predicate: (node: TreeNode) => boolean, rightToLeft?: boolean): TreeNode[]
@@ -703,14 +752,16 @@ The found nodes are returned as an array of TreeNode.
 The find algorithm uses [depth-first left-to-right preorder traversal](https://en.wikipedia.org/wiki/Tree_traversal#Pre-order,_NLR) by default.
 You can pass `rightToLeft` argument as `true` to use [depth-first right-to-left preorder traversal](https://en.wikipedia.org/wiki/Tree_traversal#Reverse_pre-order,_NRL) instead.
 
-Params:
-- `predicate` - A function used to match the nodes being searched for. This function is passed a node and returns true if the node is a match.
-- `rightToLeft` - Optional. When true, searching will traverse the tree using depth-first right-to-left preorder traversal.
+| Param         | Description                                                                                                                    |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `predicate`   | A function used to match the nodes being searched for. This function is passed a node and returns true if the node is a match. |
+| `rightToLeft` | Optional. When true, searching will traverse the tree using depth-first right-to-left preorder traversal.                      |
 
-Returns:
-- A `TreeNode[]` array containing all found nodes.
+| Returns                                          |
+| ------------------------------------------------ |
+| A `TreeNode[]` array containing all found nodes. |
 
-###### findById
+#### findById
 
 ```ts
 findById(id: any, idPropertyName = 'id', rightToLeft?: boolean): TreeNode | undefined
@@ -724,15 +775,17 @@ the `idPropertyName` argument.
 The find algorithm uses [depth-first left-to-right preorder traversal](https://en.wikipedia.org/wiki/Tree_traversal#Pre-order,_NLR) by default.
 You can pass `rightToLeft` argument as `true` to use [depth-first right-to-left preorder traversal](https://en.wikipedia.org/wiki/Tree_traversal#Reverse_pre-order,_NRL) instead.
 
-Params:
-- `id` - The node ID to search for.
-- `idPropertyName` - Optional. The property name of the ID. Defaults as "id".
-- `rightToLeft` - Optional. When true, searching will traverse the tree using depth-first right-to-left preorder traversal.
+| Param            | Description                                                                                               |
+| ---------------- | --------------------------------------------------------------------------------------------------------- |
+| `id`             | The node ID to search for.                                                                                |
+| `idPropertyName` | Optional. The property name of the ID. Defaults as "id".                                                  |
+| `rightToLeft`    | Optional. When true, searching will traverse the tree using depth-first right-to-left preorder traversal. |
 
-Returns:
-- The node with the provided id, or `undefined` if not found.
+| Returns                                                     |
+| ----------------------------------------------------------- |
+| The node with the provided id, or `undefined` if not found. |
 
-###### walk
+#### walk
 
 ```ts
 walk(visit: (node: TreeNode) => boolean | void, rightToLeft?: boolean): boolean
@@ -745,14 +798,16 @@ If the visit function returns true at any point, walking is aborted.
 The walk algorithm uses [depth-first left-to-right preorder traversal](https://en.wikipedia.org/wiki/Tree_traversal#Pre-order,_NLR) by default.
 You can pass `rightToLeft` argument as `true` to use [depth-first right-to-left preorder traversal](https://en.wikipedia.org/wiki/Tree_traversal#Reverse_pre-order,_NRL) instead.
 
-Params:
-- `visit` - A visit function called on every node traversed. If the visit function returns true at any point, walking is aborted.
-- `rightToLeft` - Optional. When true, it will traverse the tree using depth-first right-to-left preorder traversal.
+| Param         | Description                                                                                                           |
+| ------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `visit`       | A visit function called on every node traversed. If the visit function returns true at any point, walking is aborted. |
+| `rightToLeft` | Optional. When true, it will traverse the tree using depth-first right-to-left preorder traversal.                    |
 
-Returns:
-- True if the traversal was aborted, false otherwise.
+| Returns                                             |
+| --------------------------------------------------- |
+| True if the traversal was aborted, false otherwise. |
 
-###### toObject
+#### toObject
 
 ```ts
 toObject(): Record<string, any>
@@ -762,10 +817,11 @@ Returns an object containing the tree node data including all nested children.
 
 Note: Parents, if any, are not included.
 
-Returns:
-- An object containing the tree node data including all nested children.
+| Returns                                                                |
+| ---------------------------------------------------------------------- |
+| An object containing the tree node data including all nested children. |
 
-###### toJSON
+#### toJSON
 
 ```ts
 toJSON(): string
@@ -780,13 +836,15 @@ As such, all data in the tree node must support `JSON.stringify()` or an error w
 @see You can use `TreeNode.fromJSON()` to construct a tree node from the resulting JSON output.
 @see If you'd like to clone the tree node, you can simply use `clone()` which converts to JSON and back to a TreeNode for you.
 
-Returns:
-- A JSON string of an object containing the tree node data including all nested children.
+| Returns                                                                                 |
+| --------------------------------------------------------------------------------------- |
+| A JSON string of an object containing the tree node data including all nested children. |
 
-Errors thrown:
-- An error if the tree node data cannot be converted to a string using `JSON.stringify()`.
+| Errors Thrown                                                                            |
+| ---------------------------------------------------------------------------------------- |
+| An error if the tree node data cannot be converted to a string using `JSON.stringify()`. |
 
-###### clone
+#### clone
 
 ```ts
 clone(): TreeNode
@@ -797,15 +855,17 @@ Returns a deep clone of the tree node, including all children. Parents, if any, 
 This is accomplished by stringifying the tree node's `toObject()` value, and then parsing the resulting JSON string to create an entirely new tree node.
 As such, all data in the tree node must support `JSON.stringify()` or an error will be thrown.
 
-Returns:
-- A deep clone of the tree node, including all children.
+| Returns                                                |
+| ------------------------------------------------------ |
+| A deep clone of the tree node, including all children. |
 
-Errors thrown:
-- An error if `JSON.stringify()` fails on the tree node.
+| Errors Thrown                                          |
+| ------------------------------------------------------ |
+| An error if `JSON.stringify()` fails on the tree node. |
 
-##### Static Functions
+### Static Functions
 
-###### fromJSON
+#### fromJSON
 
 ```ts
 TreeNode.fromJSON(dataString: string, options: TreeNodeOptions = TreeNode.defaultTreeNodeOptions): TreeNode
@@ -822,15 +882,18 @@ JSON example:
 }
 ```
 
-Params:
-- `dataString` - The JSON data string containing an object with nested children.
-- `options` - Optional. The options for the TreeNode.
+| Param        | Description                                                     |
+| ------------ | --------------------------------------------------------------- |
+| `dataString` | The JSON data string containing an object with nested children. |
+| `options`    | Optional. The options for the TreeNode.                         |
 
-Returns:
-- A TreeNode constructed from the parsed JSON.
+| Returns                                      |
+| -------------------------------------------- |
+| A TreeNode constructed from the parsed JSON. |
 
-Errors thrown:
-- An error if JSON parsing fails.
+| Errors Thrown                   |
+| ------------------------------- |
+| An error if JSON parsing fails. |
 
 
 
