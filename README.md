@@ -77,7 +77,6 @@ If this project helped you, please consider buying me a coffee. Your support is 
     - [equals](#equals)
     - [isDescendantOf](#isdescendantof)
     - [isAncestorOf](#isancestorof)
-- [| `node` | The node to check. |](#-node--the-node-to-check-)
     - [addChildNode](#addchildnode)
     - [addChildData](#addchilddata)
     - [getNodePath](#getnodepath)
@@ -281,7 +280,7 @@ Returns true if this node is an ancestor of, or above, the provided node. False 
 | Param  | Description        |
 | ------ | ------------------ |
 | `node` | The node to check. |
-- 
+
 | Returns                                                                            |
 | ---------------------------------------------------------------------------------- |
 | True if this node is an ancestor of, or above, the provided node. False otherwise. |
