@@ -27,8 +27,6 @@ The `TreeNode` class is simple yet highly versatile:
 
 See the Quick Start section below for examples.
 
-> Note: A `Tree` alias exists for `TreeNode` -- in this library, they are interchangeable.
-
 ### Features include:
 
 - **🌴 Tree structure in JS**
@@ -147,7 +145,7 @@ const builtTree = TreeNode.fromJSON(treeJson);
 
 ## TreeNode/Tree API
 
-A `Tree` simply extends `TreeNode` and can be used as the root node. Both share the same API, defined below.
+A `Tree` alias exists for `TreeNode` -- in this library, they are interchangeable.
 
 ### Class Functions
 
