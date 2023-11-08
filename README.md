@@ -247,11 +247,12 @@ Returns true if the provided node is equal to this node.
 
 This operation uses the equals function provided in the TreeNode options, and uses `===` equality by default when an equals function is not specified.
 
-| Param                                            | Description                     |
-| ------------------------------------------------ | ------------------------------- |
-| `node`                                           | The node to check for equality. |
+| Param  | Description                     |
+| ------ | ------------------------------- |
+| `node` | The node to check for equality. |
+
 | Returns                                          |
-| ---                                              |
+| ------------------------------------------------ |
 | True if the provided node is equal to this node. |
 
 #### isDescendantOf
@@ -315,8 +316,6 @@ Creates a TreeNode with the data provided and adds it as a child. Returns the ne
 | Param   | Description                                                                              |
 | ------- | ---------------------------------------------------------------------------------------- |
 | `data`  | The child data. A new node will be created from this data.                               |
-| Param   | Description                                                                              |
-| -----   | -----                                                                                    |
 | `index` | The index at which to add the child. Pass `undefined` to add to the end of the children. |
 
 | Returns                     |
