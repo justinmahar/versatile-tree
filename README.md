@@ -152,7 +152,7 @@ A `Tree` simply extends `TreeNode` and can be used as the root node. Both share 
 #### Constructor
 
 ```ts
-new Tree(data: Record<string, any> = {}, options: TreeNodeOptions = TreeNode.defaultTreeNodeOptions)
+new TreeNode(data: Record<string, any> = {}, options: TreeNodeOptions = TreeNode.defaultTreeNodeOptions)
 ```
 
 Construct a new TreeNode using the provided data. The data can include arbitrary properties with an optional children array.
