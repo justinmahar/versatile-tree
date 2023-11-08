@@ -149,8 +149,6 @@ A `Tree` simply extends `TreeNode` and can be used as the root node. Both share 
 
 ### Class Functions
 
----
-
 #### Constructor
 
 ```ts
@@ -949,8 +947,6 @@ As such, all data in the tree node must support `JSON.stringify()` or an error w
 
 ### Static Functions
 
----
-
 #### fromJSON
 
 ```ts
@@ -981,9 +977,7 @@ JSON example:
 | ------------------------------- |
 | An error if JSON parsing fails. |
 
-
-
-
+---
 
 [lock:typescript]::🚫---------------------------------------
 
