@@ -35,8 +35,8 @@ See the Quick Start section below for examples.
   - Construct and use tree structures in JavaScript easily.
 - **🔁 Easy conversion to/from JSON**
   - Easily convert the entire tree, or a subsection, to and from JSON.
-- **🎯 Node and selection paths**
-  - Get a path array to any node, or get selection paths for large.
+- **🎯 Node paths and selection paths**
+  - Get a path array to any node, and get selection paths for selecting nodes in trees without node IDs.
 - **🆔 IDs are optional**
   - Versatility is the name of the game. This tree library supports nodes without IDs!
 - **👨‍👩‍👧‍👦 Sibling support**
