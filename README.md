@@ -149,6 +149,8 @@ A `Tree` simply extends `TreeNode` and can be used as the root node. Both share 
 
 ### Class Functions
 
+---
+
 #### Constructor
 
 ```ts
@@ -184,6 +186,8 @@ To construct a TreeNode from JSON, use `TreeNode.fromJSON()`.
 | `data`    | Optional. An object containing data for the node, plus optional children with subnodes.                                    |
 | `options` | Optional (pun intended). The options for the TreeNode. Falls back on `TreeNode.defaultTreeNodeOptions` when not specified. |
 
+---
+
 #### getData
 
 ```ts
@@ -198,6 +202,8 @@ To get data and all descendants, including children, for this node, use `toObjec
 | ------------------------------------------------------ |
 | The data for this node, without the children property. |
 
+---
+
 #### getChildrenPropertyName
 
 ```ts
@@ -208,6 +214,8 @@ Returns the property name used for children.
 | Returns                              |
 | ------------------------------------ |
 | The property name used for children. |
+
+---
 
 #### hasParent
 
@@ -223,6 +231,8 @@ When a node has no parent, it is the root. You can also use `isRoot()` to check 
 | ------------------------------------------------ |
 | True if this node has a parent, false otherwise. |
 
+---
+
 #### isRoot
 
 ```ts
@@ -235,6 +245,8 @@ When a node has a parent, it is not the root. You can also use `hasParent()` to 
 | Returns                                                         |
 | --------------------------------------------------------------- |
 | True if this node is the root (has no parent), false otherwise. |
+
+---
 
 #### equals
 
@@ -254,6 +266,8 @@ This operation uses the equals function provided in the TreeNode options, and us
 | ------------------------------------------------ |
 | True if the provided node is equal to this node. |
 
+---
+
 #### isDescendantOf
 
 ```ts
@@ -270,6 +284,8 @@ Returns true if this node is a descendant of, or below, the provided node. False
 | ----------------------------------------------------------------------------------- |
 | True if this node is a descendant of, or below, the provided node. False otherwise. |
 
+---
+
 #### isAncestorOf
 
 ```ts
@@ -284,6 +300,8 @@ Returns true if this node is an ancestor of, or above, the provided node. False 
 | Returns                                                                            |
 | ---------------------------------------------------------------------------------- |
 | True if this node is an ancestor of, or above, the provided node. False otherwise. |
+
+---
 
 #### addChildNode
 
@@ -305,6 +323,8 @@ You disable this protection by setting `allowCircularReferences` to true.
 | `index`                   | Optional. The index at which to insert the child. If `undefined`, the child will be added to the end. |
 | `allowCircularReferences` | Optional. Set to `true` to allow circular references.                                                 |
 
+---
+
 #### addChildData
 
 ```ts
@@ -321,6 +341,8 @@ Creates a TreeNode with the data provided and adds it as a child. Returns the ne
 | --------------------------- |
 | The newly created TreeNode. |
 
+---
+
 #### getNodePath
 
 ```ts
@@ -332,6 +354,8 @@ Returns an array containing all nodes in the tree leading to this one, starting 
 | Returns                                                                                |
 | -------------------------------------------------------------------------------------- |
 | An array containing all nodes in the tree leading to this one, starting with the root. |
+
+---
 
 #### getSelectionPath
 
@@ -373,6 +397,8 @@ Selecting the node using this path is nearly instantaneous.
 | --------------------------------------------------------------------- |
 | An array of sibling index positions of all nodes leading to this one. |
 
+---
+
 #### selectNode
 
 ```ts
@@ -398,6 +424,8 @@ See `getSelectionPath()` for more.
 | --------------------------------------------------- |
 | The selected TreeNode, or `undefined` if not found. |
 
+---
+
 #### getChildren
 
 ```ts
@@ -409,6 +437,8 @@ Returns the children for this node.
 | --------------------------- |
 | The children for this node. |
 
+---
+
 #### hasChildren
 
 ```ts
@@ -419,6 +449,8 @@ Returns true if this node has children. False otherwise.
 | Returns                                          |
 | ------------------------------------------------ |
 | True if this node has children. False otherwise. |
+
+---
 
 #### getFirstChild
 
@@ -432,6 +464,8 @@ Returns the first child in this node's list of children, or `undefined` if there
 | ----------------------------------------------------------------------------------------- |
 | The first child in this node's list of children, or `undefined` if there are no children. |
 
+---
+
 #### getLastChild
 
 ```ts
@@ -443,6 +477,8 @@ Returns the last child in this node's list of children, or `undefined` if there 
 | Returns                                                                                  |
 | ---------------------------------------------------------------------------------------- |
 | The last child in this node's list of children, or `undefined` if there are no children. |
+
+---
 
 #### hasChild
 
@@ -461,6 +497,8 @@ You can use `isDescendant(node)` to check for a child relationship along the ent
 | Returns                                                                                  |
 | ---------------------------------------------------------------------------------------- |
 | True if this node has the provided node in its direct list of children. False otherwise. |
+
+---
 
 #### removeChild
 
@@ -481,6 +519,8 @@ Returns `true` if the node was successfully removed. Returns `false` if the node
 | -------------------------------------------------------- |
 | True if the node was removed. False if it was not found. |
 
+---
+
 #### removeParent
 
 ```ts
@@ -496,6 +536,8 @@ Returns `true` if this node was successfully removed from its parent, `false` ot
 | --------------------------------------------------------------- |
 | True if this node was removed from its parent, false otherwise. |
 
+---
+
 #### getSiblings
 
 ```ts
@@ -506,6 +548,8 @@ Returns an array of all siblings for this node.
 | Returns                                 |
 | --------------------------------------- |
 | An array of all siblings for this node. |
+
+---
 
 #### getSiblingCount
 
@@ -519,6 +563,8 @@ Returns the number of siblings this node has including itself.
 | ------------------------------------------------------ |
 | The number of siblings this node has including itself. |
 
+---
+
 #### isOnlyChild
 
 ```ts
@@ -530,6 +576,8 @@ Returns true if this node is an only child (has no other siblings), false otherw
 | Returns                                                                      |
 | ---------------------------------------------------------------------------- |
 | True if this node is an only child (has no other siblings), false otherwise. |
+
+---
 
 #### getFirstSibling
 
@@ -543,6 +591,8 @@ Returns the first sibling in this node's list of siblings.
 | -------------------------------------------------- |
 | The first sibling in this node's list of siblings. |
 
+---
+
 #### getLastSibling
 
 ```ts
@@ -554,6 +604,8 @@ Returns the last sibling in this node's list of siblings.
 | Returns                                           |
 | ------------------------------------------------- |
 | The last sibling in this node's list of siblings. |
+
+---
 
 #### getLeftSibling
 
@@ -567,6 +619,8 @@ Returns the sibling to the left of this node, or `undefined` if there is none.
 | ---------------------------------------------------------------------- |
 | The sibling to the left of this node, or `undefined` if there is none. |
 
+---
+
 #### getRightSibling
 
 ```ts
@@ -577,6 +631,8 @@ Returns the sibling to the right of this node, or `undefined` if there is none.
 | Returns                                                                 |
 | ----------------------------------------------------------------------- |
 | The sibling to the right of this node, or `undefined` if there is none. |
+
+---
 
 #### addSiblingNode
 
@@ -597,6 +653,8 @@ To prevent this, use `isRoot()` to check if you're at the root.
 | Errors Thrown                          |
 | -------------------------------------- |
 | Throws an error if called at the root. |
+
+---
 
 #### addSiblingData
 
@@ -619,6 +677,8 @@ To prevent this, use `isRoot()` to check if you're at the root.
 | --------------------------- |
 | The newly created TreeNode. |
 
+---
+
 #### getIndex
 
 ```ts
@@ -631,6 +691,8 @@ Note: The root will always have an index of `0`.
 | Returns                               |
 | ------------------------------------- |
 | This node's index among its siblings. |
+
+---
 
 #### indexOfChild
 
@@ -648,6 +710,8 @@ Returns the index of the provided node in this node's list of children, or `-1` 
 | ------------------------------------------------------------------------------------------- |
 | The index of the provided node in this node's list of children, or `-1` if it is not found. |
 
+---
+
 #### indexOfSibling
 
 ```ts
@@ -664,6 +728,8 @@ Returns the index of the provided node in this node's list of siblings, or `-1` 
 | ------------------------------------------------------------------------------------------- |
 | The index of the provided node in this node's list of siblings, or `-1` if it is not found. |
 
+---
+
 #### getParent
 
 ```ts
@@ -674,6 +740,8 @@ Returns the parent of this node, or `undefined` if there is none.
 | Returns                                                   |
 | --------------------------------------------------------- |
 | The parent of this node, or `undefined` if there is none. |
+
+---
 
 #### isParent
 
@@ -692,6 +760,8 @@ You can use `isAncestor(node)` to check for a parental relationship along the en
 | ------------------------------------------------------------------------ |
 | True if the provided node is this node's direct parent, false otherwise. |
 
+---
+
 #### setParent
 
 ```ts
@@ -702,6 +772,8 @@ Sets the provided node as the parent of this node. If `parent` is `undefined`, t
 | Param    | Description                        |
 | -------- | ---------------------------------- |
 | `parent` | The node to set as the new parent. |
+
+---
 
 #### getRoot
 
@@ -714,6 +786,8 @@ Returns the root node at the top of the tree hierarchy.
 | Returns                                         |
 | ----------------------------------------------- |
 | The root node at the top of the tree hierarchy. |
+
+---
 
 #### findFirst
 
@@ -737,6 +811,8 @@ You can pass `rightToLeft` argument as `true` to use [depth-first right-to-left 
 | -------------------------------------------- |
 | The found node, or `undefined` if not found. |
 
+---
+
 #### findAll
 
 ```ts
@@ -758,6 +834,8 @@ You can pass `rightToLeft` argument as `true` to use [depth-first right-to-left 
 | Returns                                          |
 | ------------------------------------------------ |
 | A `TreeNode[]` array containing all found nodes. |
+
+---
 
 #### findById
 
@@ -783,6 +861,8 @@ You can pass `rightToLeft` argument as `true` to use [depth-first right-to-left 
 | ----------------------------------------------------------- |
 | The node with the provided id, or `undefined` if not found. |
 
+---
+
 #### walk
 
 ```ts
@@ -805,6 +885,8 @@ You can pass `rightToLeft` argument as `true` to use [depth-first right-to-left 
 | --------------------------------------------------- |
 | True if the traversal was aborted, false otherwise. |
 
+---
+
 #### toObject
 
 ```ts
@@ -818,6 +900,8 @@ Note: Parents, if any, are not included.
 | Returns                                                                |
 | ---------------------------------------------------------------------- |
 | An object containing the tree node data including all nested children. |
+
+---
 
 #### toJSON
 
@@ -842,6 +926,8 @@ As such, all data in the tree node must support `JSON.stringify()` or an error w
 | ---------------------------------------------------------------------------------------- |
 | An error if the tree node data cannot be converted to a string using `JSON.stringify()`. |
 
+---
+
 #### clone
 
 ```ts
@@ -862,6 +948,8 @@ As such, all data in the tree node must support `JSON.stringify()` or an error w
 | An error if `JSON.stringify()` fails on the tree node. |
 
 ### Static Functions
+
+---
 
 #### fromJSON
 
