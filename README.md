@@ -33,6 +33,20 @@ See the Quick Start section below for examples.
 
 - **🌴 Tree structure in JS**
   - Construct and use tree structures in JavaScript easily.
+- **🔁 Easy conversion to/from JSON**
+  - Easily convert the entire tree, or a subsection, to and from JSON.
+- **🎯 Node and selection paths**
+  - Get a path array to any node, or get selection paths for large.
+- **🆔 IDs are optional**
+  - Versatility is the name of the game. This tree library supports nodes without IDs!
+- **👨‍👩‍👧‍👦 Sibling support**
+  - Get left/right siblings, or add a sibling at any index. Full sibling support!
+- **🔍 Find and walk**
+  - Find nodes by ID, or using custom logic, and walk the tree.
+- **📄 Deep cloning**
+  - Easily deep clone the entire tree, or any tree node.
+- **✨ Much more!**
+  - See the full API below!
 
 [lock:donate]::🚫---------------------------------------
 
