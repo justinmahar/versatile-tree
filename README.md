@@ -36,15 +36,17 @@ See the Quick Start section below for examples.
 - **🔁 Easy conversion to/from JSON**
   - Easily convert the entire tree, or a subsection, to and from JSON.
 - **🎯 Node paths and selection paths**
-  - Get a path array to any node, and get selection paths for selecting nodes in trees without node IDs.
+  - Get a path array to any node, and selection paths for instant selection of nodes.
 - **🆔 IDs are optional**
   - Versatility is the name of the game. This tree library supports nodes without IDs!
 - **👨‍👩‍👧‍👦 Sibling support**
-  - Get left/right siblings, or add a sibling at any index. Full sibling support!
+  - Get left/right siblings, or add a siblings to any sub-root node. Full sibling support!
 - **🔍 Find and walk**
-  - Find nodes by ID or custom logic, and walk the tree, visiting every node.
+  - Find nodes by ID or custom logic, and walk the tree.
 - **📄 Deep cloning**
   - Easily deep clone the entire tree, or any tree node.
+- **🤴 Ancestor and descendent checking**
+  - Determine if any node is an ancestor or descendant of another.
 - **✨ Much more!**
   - See the full API below!
 
