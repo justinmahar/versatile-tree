@@ -42,7 +42,7 @@ See the Quick Start section below for examples.
 - **👨‍👩‍👧‍👦 Sibling support**
   - Get left/right siblings, or add a sibling at any index. Full sibling support!
 - **🔍 Find and walk**
-  - Find nodes by ID, or using custom logic, and walk the tree.
+  - Find nodes by ID or custom logic, and walk the tree, visiting every node.
 - **📄 Deep cloning**
   - Easily deep clone the entire tree, or any tree node.
 - **✨ Much more!**
