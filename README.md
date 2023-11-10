@@ -73,6 +73,7 @@ If this project helped you, please consider buying me a coffee. Your support is 
     - [getData](#getdata)
     - [setData](#setdata)
     - [getChildrenPropertyName](#getchildrenpropertyname)
+    - [getOptions](#getoptions)
     - [hasParent](#hasparent)
     - [isRoot](#isroot)
     - [equals](#equals)
@@ -225,11 +226,26 @@ To replace children, pass the `replaceChildren` argument value as `true`.
 ```ts
 getChildrenPropertyName()
 ```
+
 Returns the property name used for children.
 
 | Returns                              |
 | ------------------------------------ |
 | The property name used for children. |
+
+---
+
+#### getOptions
+
+```ts
+getOptions()
+```
+
+Return the options configured for this node.
+
+| Returns                               |
+| ------------------------------------- |
+| The options configured for this node. |
 
 ---
 
