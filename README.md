@@ -71,6 +71,7 @@ If this project helped you, please consider buying me a coffee. Your support is 
   - [Class Functions](#class-functions)
     - [Constructor](#constructor)
     - [getData](#getdata)
+    - [setData](#setdata)
     - [getChildrenPropertyName](#getchildrenpropertyname)
     - [hasParent](#hasparent)
     - [isRoot](#isroot)
@@ -199,6 +200,23 @@ To get data and all descendants, including children, for this node, use `toObjec
 | Returns                                                |
 | ------------------------------------------------------ |
 | The data for this node, without the children property. |
+
+---
+
+#### setData
+
+```ts
+setData(newData: Record<string, any>, replaceChildren = false)
+```
+
+Sets the data for this node. By default, the children property is ignored. 
+
+To replace children, pass the `replaceChildren` argument value as `true`.
+
+| Param             | Description                                                                                                                                                                            |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `newData`         | The new data for this node.                                                                                                                                                            |
+| `replaceChildren` | Optional. When true, children of the node will be replaced with the children in the data. When false, the children property is ignored and only the node's data is set. Default false. |
 
 ---
 

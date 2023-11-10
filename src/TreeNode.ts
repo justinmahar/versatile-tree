@@ -90,6 +90,35 @@ export class TreeNode {
   }
 
   /**
+   * Sets the data for this node. By default, the children property is ignored.
+   *
+   * To replace children, pass the `replaceChildren` argument value as `true`.
+   *
+   * @param newData The new data for this node.
+   * @param replaceChildren Optional. When true, children of the node will be replaced with the children in the data. When false, the children property is ignored and only the node's data is set. Default false.
+   */
+  public setData(newData: Record<string, any>, replaceChildren = false) {
+    const newDataWithoutChildren = { ...newData };
+    delete newDataWithoutChildren[this.childrenPropertyName];
+    this.data = newData;
+    if (replaceChildren) {
+      const childrenData: Record<string, any>[] = newData[this.childrenPropertyName] ?? [];
+      const childrenDataIsArray = Array.isArray(childrenData);
+      this.children = [];
+      if (childrenDataIsArray) {
+        childrenData.forEach((childData) => this.addChildNode(new TreeNode(childData, this.options)));
+      } else {
+        console.error(
+          `TreeNode: Expected children property "${
+            this.childrenPropertyName
+          }" to be an array of children data. Instead got ${typeof childrenData}:`,
+          childrenData,
+        );
+      }
+    }
+  }
+
+  /**
    * Returns the property name used for children.
    *
    * @returns The property name used for children.
