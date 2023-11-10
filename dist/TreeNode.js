@@ -110,6 +110,14 @@ class TreeNode {
         return this.childrenPropertyName;
     }
     /**
+     * Return the options configured for this node.
+     *
+     * @returns The options configured for this node.
+     */
+    getOptions() {
+        return this.options;
+    }
+    /**
      * Returns true if this node has a parent, false otherwise.
      *
      * When a node has no parent, it is the root. You can also use `isRoot()` to check for this case.
