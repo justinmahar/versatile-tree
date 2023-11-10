@@ -60,6 +60,15 @@ export declare class TreeNode {
      */
     getData(): Record<string, any>;
     /**
+     * Sets the data for this node. By default, the children property is ignored.
+     *
+     * To replace children, pass the `replaceChildren` argument value as `true`.
+     *
+     * @param newData The new data for this node.
+     * @param replaceChildren Optional. When true, children of the node will be replaced with the children in the data. When false, the children property is ignored and only the node's data is set. Default false.
+     */
+    setData(newData: Record<string, any>, replaceChildren?: boolean): void;
+    /**
      * Returns the property name used for children.
      *
      * @returns The property name used for children.
