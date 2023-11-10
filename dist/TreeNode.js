@@ -123,9 +123,9 @@ class TreeNode {
      */
     isDescendantOf(node) {
         let found = false;
-        let ancestor = node.getParent();
+        let ancestor = this.getParent();
         while (ancestor) {
-            found = ancestor.equals(this);
+            found = ancestor.equals(node);
             if (found) {
                 break;
             }
