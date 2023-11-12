@@ -15,18 +15,6 @@
 
 Read the **[official documentation](https://justinmahar.github.io/versatile-tree/)**.
 
-## Demo - React-Based Tree Editor
-
-This library can be used for applications needing a tree structure. 
-
-See below for a demo using this library to power a React-based tree editor.
-
-[👁️ View Demo - React-Based Tree Editor](https://justinmahar.github.io/react-bootstrap-tree-editor/?path=/story/stories-demo--demo)
-
-<p>
- <a href="https://justinmahar.github.io/react-bootstrap-tree-editor/?path=/story/stories-demo--demo"><img src="https://raw.githubusercontent.com/justinmahar/react-bootstrap-tree-editor/master/screenshots/demo.png" width="400" /></a>
-</p>
-
 ## Overview
 
 This library contains a highly versatile tree structure for JavaScript.
@@ -62,6 +50,18 @@ See the Quick Start section below for examples.
 
 [lock:donate]::🚫---------------------------------------
 
+## Demo - React-Based Tree Editor
+
+This library can be used for applications needing a tree structure. 
+
+See below for a demo using this library to power a React-based tree editor.
+
+[👁️ View Demo - React-Based Tree Editor](https://justinmahar.github.io/react-bootstrap-tree-editor/?path=/story/stories-demo--demo)
+
+<p>
+ <a href="https://justinmahar.github.io/react-bootstrap-tree-editor/?path=/story/stories-demo--demo"><img src="https://raw.githubusercontent.com/justinmahar/react-bootstrap-tree-editor/master/screenshots/demo.png" width="400" /></a>
+</p>
+
 ## Donate 
 
 If this project helped you, please consider buying me a coffee. Your support is much appreciated!
@@ -73,9 +73,9 @@ If this project helped you, please consider buying me a coffee. Your support is 
 ## Table of Contents 
 
 - [Documentation](#documentation)
-- [Demo - React-Based Tree Editor](#demo---react-based-tree-editor)
 - [Overview](#overview)
   - [Features include:](#features-include)
+- [Demo - React-Based Tree Editor](#demo---react-based-tree-editor)
 - [Donate](#donate)
 - [Table of Contents](#table-of-contents)
 - [Installation](#installation)
