@@ -52,8 +52,6 @@ See the Quick Start section below for examples.
 
 ## Demo - React-Based Tree Editor
 
-This library can be used for applications needing a tree structure. 
-
 See below for a demo using this library to power a React-based tree editor.
 
 [👁️ View Demo - React-Based Tree Editor](https://justinmahar.github.io/react-bootstrap-tree-editor/?path=/story/stories-demo--demo)
