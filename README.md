@@ -1051,4 +1051,4 @@ If you found this project helpful, let the community know by giving it a [star](
 
 ## License
 
-See [LICENSE.md](https://justinmahar.github.io/versatile-tree/?path=/story/license--page).
+See [LICENSE.md](https://justinmahar.github.io/versatile-tree/?path=/docs/license--docs).
