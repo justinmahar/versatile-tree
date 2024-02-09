@@ -7,9 +7,13 @@
 <p align="center">
   <a href="https://badge.fury.io/js/versatile-tree" target="_blank" rel="noopener noreferrer"><img src="https://badge.fury.io/js/versatile-tree.svg" alt="npm Version" /></a>&nbsp;
   <a href="https://github.com/justinmahar/versatile-tree/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/GitHub-Source-success" alt="View project on GitHub" /></a>&nbsp;
-  <a href="https://github.com/justinmahar/versatile-tree/actions?query=workflow%3ADeploy" target="_blank" rel="noopener noreferrer"><img src="https://github.com/justinmahar/versatile-tree/workflows/Deploy/badge.svg" alt="Deploy Status" /></a>&nbsp;
-  <a href="https://github.com/sponsors/justinmahar" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" alt="Sponsor"/></a>
+  <a href="https://github.com/justinmahar/versatile-tree/actions?query=workflow%3ADeploy" target="_blank" rel="noopener noreferrer"><img src="https://github.com/justinmahar/versatile-tree/workflows/Deploy/badge.svg" alt="Deploy Status" /></a>
 </p>
+<!-- [lock:donate-badges] 🚫--------------------------------------- -->
+<p align="center">
+  <a href="https://ko-fi.com/justinmahar"><img src="https://img.shields.io/static/v1?label=Buy%20me%20a%20coffee&message=%E2%9D%A4&logo=KoFi&color=%23fe8e86" alt="Buy me a coffee" /></a>&nbsp;<a href="https://github.com/sponsors/justinmahar" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" alt="Sponsor"/></a>
+</p>
+<!-- [/lock:donate-badges] ---------------------------------------🚫 -->
 
 ## Documentation
 
@@ -48,32 +52,21 @@ See the Quick Start section below for examples.
 - **✨ Much more!**
   - See the full API below!
 
-[lock:donate]::🚫---------------------------------------
-
-## Demo - React-Based Tree Editor
-
-See below for a demo using this library to power a React-based tree editor.
-
-[👁️ View Demo - React-Based Tree Editor](https://justinmahar.github.io/react-bootstrap-tree-editor/?path=/story/stories-demo--demo)
-
-<p>
- <a href="https://justinmahar.github.io/react-bootstrap-tree-editor/?path=/story/stories-demo--demo"><img src="https://raw.githubusercontent.com/justinmahar/react-bootstrap-tree-editor/master/screenshots/demo.png" width="400" /></a>
-</p>
+<!-- [lock:donate] 🚫--------------------------------------- -->
 
 ## Donate 
 
-If this project helped you, please consider buying me a coffee. Your support is much appreciated!
+If this project helped you, please consider buying me a coffee or sponsoring me. Your support is much appreciated!
 
-<a href="https://paypal.me/thejustinmahar/5"><img src="https://justinmahar.github.io/versatile-tree/support/coffee-1.png" alt="Buy me a coffee" height="35" /></a> <a href="https://paypal.me/thejustinmahar/15"><img src="https://justinmahar.github.io/versatile-tree/support/coffee-3.png" alt="Buy me 3 coffees" height="35" /></a> <a href="https://paypal.me/thejustinmahar/25"><img src="https://justinmahar.github.io/versatile-tree/support/coffee-5.png" alt="Buy me 5 coffees" height="35" /></a>
+<a href="https://ko-fi.com/justinmahar"><img src="https://img.shields.io/static/v1?label=Buy%20me%20a%20coffee&message=%E2%9D%A4&logo=KoFi&color=%23fe8e86" alt="Buy me a coffee" /></a>&nbsp;<a href="https://github.com/sponsors/justinmahar" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" alt="Sponsor"/></a>
 
-[/lock:donate]::---------------------------------------🚫
+<!-- [/lock:donate] ---------------------------------------🚫 -->
 
 ## Table of Contents 
 
 - [Documentation](#documentation)
 - [Overview](#overview)
   - [Features include:](#features-include)
-- [Demo - React-Based Tree Editor](#demo---react-based-tree-editor)
 - [Donate](#donate)
 - [Table of Contents](#table-of-contents)
 - [Installation](#installation)
@@ -1024,23 +1017,23 @@ JSON example:
 
 ---
 
-[lock:typescript]::🚫---------------------------------------
+<!-- [lock:typescript] 🚫--------------------------------------- -->
 
 ## TypeScript
 
 Type definitions have been included for [TypeScript](https://www.typescriptlang.org/) support.
 
-[/lock:typescript]::---------------------------------------🚫
+<!-- [/lock:typescript] ---------------------------------------🚫 -->
 
-[lock:icon]::🚫---------------------------------------
+<!-- [lock:icon] 🚫--------------------------------------- -->
 
 ## Icon Attribution
 
 Favicon by [Twemoji](https://github.com/twitter/twemoji).
 
-[/lock:icon]::---------------------------------------🚫
+<!-- [/lock:icon] ---------------------------------------🚫 -->
 
-[lock:contributing]::🚫---------------------------------------
+<!-- [lock:contributing] 🚫--------------------------------------- -->
 
 ## Contributing
 
@@ -1050,7 +1043,7 @@ Feel free to submit a pull request for bugs or additions, and make sure to updat
 
 For major changes, open an issue first to discuss what you'd like to change.
 
-[/lock:contributing]::---------------------------------------🚫
+<!-- [/lock:contributing] --------------------------------------🚫 -->
 
 ## ⭐ Found It Helpful? [Star It!](https://github.com/justinmahar/versatile-tree/stargazers)
 
