@@ -31,6 +31,17 @@ The `TreeNode` class is simple yet highly versatile:
 
 See the Quick Start section below for examples.
 
+## Demo - React-Based Tree Editor
+
+This library can be used for applications needing a tree structure. 
+
+See below for a demo using this library to power a React-based tree editor.
+
+[👁️ View Demo - React-Based Tree Editor](https://justinmahar.github.io/react-bootstrap-tree-editor/?path=/story/stories-demo--demo)
+<p>
+ <a href="https://justinmahar.github.io/react-bootstrap-tree-editor/?path=/story/stories-demo--demo"><img src="https://raw.githubusercontent.com/justinmahar/react-bootstrap-tree-editor/master/screenshots/demo.png" width="400" /></a>
+</p>
+
 ### Features include:
 
 - **🌴 Tree structure in JS**
@@ -66,6 +77,7 @@ If this project helped you, please consider buying me a coffee or sponsoring me.
 
 - [Documentation](#documentation)
 - [Overview](#overview)
+- [Demo - React-Based Tree Editor](#demo---react-based-tree-editor)
   - [Features include:](#features-include)
 - [Donate](#donate)
 - [Table of Contents](#table-of-contents)
