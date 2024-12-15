@@ -101,6 +101,7 @@ If this project helped you, please consider buying me a coffee or sponsoring me.
     - [getSelectionPath](#getselectionpath)
     - [selectNode](#selectnode)
     - [getChildren](#getchildren)
+    - [getChildCount](#getchildcount)
     - [hasChildren](#haschildren)
     - [getFirstChild](#getfirstchild)
     - [getLastChild](#getlastchild)
@@ -484,6 +485,19 @@ Returns the children for this node.
 | Returns                     |
 | --------------------------- |
 | The children for this node. |
+
+---
+
+#### getChildCount
+
+```ts
+getChildCount(): number
+```
+Returns the number of children for this node.
+
+| Returns                               |
+| ------------------------------------- |
+| The number of children for this node. |
 
 ---
 

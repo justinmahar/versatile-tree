@@ -348,11 +348,11 @@ export class TreeNode {
   }
 
   /**
-   * Returns the number if children for this node.
+   * Returns the number of children for this node.
    *
    * @returns The number of children for this node.
    */
-  public getChildrenCount(): number {
+  public getChildCount(): number {
     return this.getChildren().length;
   }
 
@@ -362,7 +362,7 @@ export class TreeNode {
    * @returns True if this node has children. False otherwise.
    */
   public hasChildren(): boolean {
-    return this.getChildrenCount() > 0;
+    return this.getChildCount() > 0;
   }
 
   /**
