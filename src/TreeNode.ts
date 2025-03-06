@@ -16,13 +16,13 @@
  * hierarchy traversal and quickly selecting existing nodes. For example, you may want to store a node's selection path and then
  * reselect that same node at a later time in your application. You can also find nodes via `find()` or `findById()` if your nodes use IDs.
  */
-export class TreeNode {
+export class TreeNode<TTree extends Record<string, any> = Record<string, any>> {
   public static defaultTreeNodeOptions: TreeNodeOptions = {
     childrenPropertyName: 'children',
     equals: (a, b) => a === b,
   };
-  private parent: TreeNode | undefined;
-  private children: TreeNode[];
+  private parent: TreeNode<TTree> | undefined;
+  private children: TreeNode<TTree>[];
   private childrenPropertyName: string;
   private equalsFunction: TreeNodeEquals;
 
@@ -55,14 +55,14 @@ export class TreeNode {
    * @param options Optional (pun intended). The options for the TreeNode. Falls back on `TreeNode.defaultTreeNodeOptions` when not specified.
    */
   constructor(
-    private data: Record<string, any> = {},
+    private data: TTree,
     private options: TreeNodeOptions = TreeNode.defaultTreeNodeOptions,
   ) {
     this.childrenPropertyName =
       options.childrenPropertyName ?? (TreeNode.defaultTreeNodeOptions.childrenPropertyName as string);
     this.equalsFunction = options.equals ?? (TreeNode.defaultTreeNodeOptions.equals as TreeNodeEquals);
     this.data = { ...data };
-    const childrenData: Record<string, any>[] = this.data[this.childrenPropertyName] ?? [];
+    const childrenData: TTree[] = this.data[this.childrenPropertyName] ?? [];
     delete this.data[this.childrenPropertyName];
     const childrenDataIsArray = Array.isArray(childrenData);
     this.children = [];
@@ -97,12 +97,12 @@ export class TreeNode {
    * @param newData The new data for this node.
    * @param replaceChildren Optional. When true, children of the node will be replaced with the children in the data. When false, the children property is ignored and only the node's data is set. Default false.
    */
-  public setData(newData: Record<string, any>, replaceChildren = false) {
+  public setData(newData: TTree, replaceChildren = false) {
     const newDataWithoutChildren = { ...newData };
     delete newDataWithoutChildren[this.childrenPropertyName];
     this.data = newData;
     if (replaceChildren) {
-      const childrenData: Record<string, any>[] = newData[this.childrenPropertyName] ?? [];
+      const childrenData: TTree[] = newData[this.childrenPropertyName] ?? [];
       const childrenDataIsArray = Array.isArray(childrenData);
       this.children = [];
       if (childrenDataIsArray) {
@@ -166,7 +166,7 @@ export class TreeNode {
    * @param node The node to check for equality.
    * @returns True if the provided node is equal to this node.
    */
-  public equals(node: TreeNode): boolean {
+  public equals(node: TreeNode<TTree>): boolean {
     return this.equalsFunction(this, node);
   }
 
@@ -176,7 +176,7 @@ export class TreeNode {
    * @param node The node to check.
    * @returns True if this node is a descendant of, or below, the provided node. False otherwise.
    */
-  public isDescendantOf(node: TreeNode) {
+  public isDescendantOf(node: TreeNode<TTree>) {
     let found = false;
     let ancestor = this.getParent();
     while (ancestor) {
@@ -196,7 +196,7 @@ export class TreeNode {
    * @param node The node to check.
    * @returns True if this node is an ancestor of, or above, the provided node. False otherwise.
    */
-  public isAncestorOf(node: TreeNode) {
+  public isAncestorOf(node: TreeNode<TTree>) {
     return node.isDescendantOf(this);
   }
 
@@ -213,7 +213,7 @@ export class TreeNode {
    * @param index Optional. The index at which to insert the child. If `undefined`, the child will be added to the end.
    * @param allowCircularReferences Optional. Set to `true` to allow circular references.
    */
-  public addChildNode(node: TreeNode, index?: number, allowCircularReferences?: boolean) {
+  public addChildNode(node: TreeNode<TTree>, index?: number, allowCircularReferences?: boolean) {
     if (!allowCircularReferences) {
       if (node.isAncestorOf(this)) {
         this.removeParent();
@@ -236,7 +236,7 @@ export class TreeNode {
    *
    * @returns The newly created TreeNode.
    */
-  public addChildData(data: Record<string, any> = {}, index?: number): TreeNode {
+  public addChildData(data: TTree, index?: number): TreeNode<TTree> {
     const treeNode = new TreeNode(data, this.options);
     this.addChildNode(treeNode, index);
     return treeNode;
@@ -247,9 +247,9 @@ export class TreeNode {
    *
    * @returns An array containing all nodes in the tree leading to this one, starting with the root.
    */
-  public getNodePath(): TreeNode[] {
-    const path: TreeNode[] = [];
-    let currNode: TreeNode | undefined = this;
+  public getNodePath(): TreeNode<TTree>[] {
+    const path: TreeNode<TTree>[] = [];
+    let currNode: TreeNode<TTree> | undefined = this;
     while (currNode) {
       path.unshift(currNode);
       currNode = currNode.getParent();
@@ -308,16 +308,16 @@ export class TreeNode {
    * @param selectionPath The selection path for the TreeNode as an array of sibling indexes leading to the desired node.
    * @returns The selected TreeNode, or `undefined` if not found.
    */
-  public selectNode(selectionPath: number[]): TreeNode | undefined {
-    let selectedNode: TreeNode | undefined = undefined;
-    let currNode: TreeNode = this.getRoot();
+  public selectNode(selectionPath: number[]): TreeNode<TTree> | undefined {
+    let selectedNode: TreeNode<TTree> | undefined = undefined;
+    let currNode: TreeNode<TTree> = this.getRoot();
     let currDepth = 0;
     // Walk down the selection path and stop when we hit the end
     while (currDepth < selectionPath.length) {
       // Get the index at the current depth
       const currIndex = selectionPath[currDepth];
       // Get the node's children. If we're at the root, we get the root's siblings (an array containing just the root).
-      const currChildren: TreeNode[] = currDepth === 0 ? currNode.getSiblings() : currNode.getChildren();
+      const currChildren: TreeNode<TTree>[] = currDepth === 0 ? currNode.getSiblings() : currNode.getChildren();
       // If the current index is within bounds of the children...
       if (currIndex >= 0 && currIndex < currChildren.length) {
         // Set the current node to the child at the specified position
@@ -343,7 +343,7 @@ export class TreeNode {
    *
    * @returns The children for this node.
    */
-  public getChildren(): TreeNode[] {
+  public getChildren(): TreeNode<TTree>[] {
     return this.children;
   }
 
@@ -370,7 +370,7 @@ export class TreeNode {
    *
    * @returns The first child in this node's list of children, or `undefined` if there are no children.
    */
-  public getFirstChild(): TreeNode | undefined {
+  public getFirstChild(): TreeNode<TTree> | undefined {
     return this.hasChildren() ? this.children[0] : undefined;
   }
 
@@ -379,7 +379,7 @@ export class TreeNode {
    *
    * @returns The last child in this node's list of children, or `undefined` if there are no children.
    */
-  public getLastChild(): TreeNode | undefined {
+  public getLastChild(): TreeNode<TTree> | undefined {
     return this.hasChildren() ? this.children[this.children.length - 1] : undefined;
   }
 
@@ -391,7 +391,7 @@ export class TreeNode {
    * @param node The node to search for.
    * @returns True if this node has the provided node in its direct list of children. False otherwise.
    */
-  public hasChild(node: TreeNode) {
+  public hasChild(node: TreeNode<TTree>) {
     return this.indexOfChild(node) >= 0;
   }
 
@@ -403,7 +403,7 @@ export class TreeNode {
    * @param node The node to remove.
    * @returns True if the node was removed. False if it was not found.
    */
-  public removeChild(node: TreeNode): boolean {
+  public removeChild(node: TreeNode<TTree>): boolean {
     let wasRemoved = false;
     if (this.hasChild(node)) {
       this.children.splice(this.indexOfChild(node), 1);
@@ -429,7 +429,7 @@ export class TreeNode {
    *
    * @returns An array of all siblings for this node.
    */
-  public getSiblings(): TreeNode[] {
+  public getSiblings(): TreeNode<TTree>[] {
     return this.getParent()?.getChildren() ?? [this];
   }
 
@@ -456,7 +456,7 @@ export class TreeNode {
    *
    * @returns The first sibling in this node's list of siblings.
    */
-  public getFirstSibling(): TreeNode {
+  public getFirstSibling(): TreeNode<TTree> {
     const siblings = this.getSiblings();
     return siblings[0];
   }
@@ -466,7 +466,7 @@ export class TreeNode {
    *
    * @returns The last sibling in this node's list of siblings.
    */
-  public getLastSibling(): TreeNode {
+  public getLastSibling(): TreeNode<TTree> {
     const siblings = this.getSiblings();
     return siblings[siblings.length - 1];
   }
@@ -476,7 +476,7 @@ export class TreeNode {
    *
    * @returns The sibling to the left of this node, or `undefined` if there is none.
    */
-  public getLeftSibling(): TreeNode | undefined {
+  public getLeftSibling(): TreeNode<TTree> | undefined {
     let leftSibling = undefined;
     const siblings = this.getSiblings();
     const index = this.getIndex();
@@ -491,7 +491,7 @@ export class TreeNode {
    *
    * @returns The sibling to the right of this node, or `undefined` if there is none.
    */
-  public getRightSibling(): TreeNode | undefined {
+  public getRightSibling(): TreeNode<TTree> | undefined {
     let rightSibling = undefined;
     const siblings = this.getSiblings();
     const index = this.getIndex();
@@ -511,7 +511,7 @@ export class TreeNode {
    * @param index Optional. The index for the new sibling.
    * @throws Throws an error if called at the root.
    */
-  public addSiblingNode(node: TreeNode, index?: number) {
+  public addSiblingNode(node: TreeNode<TTree>, index?: number) {
     if (!this.isRoot()) {
       const siblings = this.getSiblings();
       if (typeof index === 'number') {
@@ -535,7 +535,7 @@ export class TreeNode {
    *
    * @returns The newly created TreeNode.
    */
-  public addSiblingData(data: Record<string, any> = {}, index?: number): TreeNode {
+  public addSiblingData(data: TTree, index?: number): TreeNode<TTree> {
     const treeNode = new TreeNode(data, this.options);
     this.addSiblingNode(treeNode, index);
     return treeNode;
@@ -558,7 +558,7 @@ export class TreeNode {
    * @param node The node for which to find the index in this node's list of children.
    * @returns The index of the provided node in this node's list of children, or `-1` if it is not found.
    */
-  public indexOfChild(node: TreeNode): number {
+  public indexOfChild(node: TreeNode<TTree>): number {
     return this.children.findIndex((c) => c.equals(node));
   }
 
@@ -568,7 +568,7 @@ export class TreeNode {
    * @param node The node for which to find the index in this node's list of siblings.
    * @returns The index of the provided node in this node's list of siblings, or `-1` if it is not found.
    */
-  public indexOfSibling(node: TreeNode): number {
+  public indexOfSibling(node: TreeNode<TTree>): number {
     return this.getSiblings().findIndex((s) => s.equals(node));
   }
 
@@ -577,7 +577,7 @@ export class TreeNode {
    *
    * @returns The parent of this node, or `undefined` if there is none.
    */
-  public getParent(): TreeNode | undefined {
+  public getParent(): TreeNode<TTree> | undefined {
     return this.parent;
   }
 
@@ -589,7 +589,7 @@ export class TreeNode {
    * @param node The node to check.
    * @returns True if the provided node is this node's direct parent, false otherwise.
    */
-  public isParent(node: TreeNode) {
+  public isParent(node: TreeNode<TTree>) {
     const myParent = this.getParent();
     return myParent && myParent.equals(node);
   }
@@ -599,7 +599,7 @@ export class TreeNode {
    *
    * @param parent The node to set as the new parent.
    */
-  public setParent(parent: TreeNode | undefined): void {
+  public setParent(parent: TreeNode<TTree> | undefined): void {
     if (parent) {
       parent.addChildNode(this);
     } else {
@@ -612,9 +612,9 @@ export class TreeNode {
    *
    * @returns The root node at the top of the tree hierarchy.
    */
-  public getRoot(): TreeNode {
-    let root: TreeNode = this;
-    let currNode: TreeNode | undefined = root;
+  public getRoot(): TreeNode<TTree> {
+    let root: TreeNode<TTree> = this;
+    let currNode: TreeNode<TTree> | undefined = root;
     while (typeof currNode !== 'undefined') {
       currNode = currNode.getParent();
       if (currNode) {
@@ -636,8 +636,8 @@ export class TreeNode {
    * @param rightToLeft Optional. When true, searching will traverse the tree using depth-first right-to-left preorder traversal.
    * @returns The found node, or `undefined` if not found.
    */
-  public findFirst(predicate: (node: TreeNode) => boolean, rightToLeft?: boolean): TreeNode | undefined {
-    let foundNode: TreeNode | undefined = undefined;
+  public findFirst(predicate: (node: TreeNode<TTree>) => boolean, rightToLeft?: boolean): TreeNode<TTree> | undefined {
+    let foundNode: TreeNode<TTree> | undefined = undefined;
     this.walk((n) => {
       const found = predicate(n);
       if (found) {
@@ -660,8 +660,8 @@ export class TreeNode {
    * @param rightToLeft Optional. When true, searching will traverse the tree using depth-first right-to-left preorder traversal.
    * @returns A `TreeNode[]` array containing all found nodes.
    */
-  public findAll(predicate: (node: TreeNode) => boolean, rightToLeft?: boolean): TreeNode[] {
-    const foundNodes: TreeNode[] = [];
+  public findAll(predicate: (node: TreeNode<TTree>) => boolean, rightToLeft?: boolean): TreeNode<TTree>[] {
+    const foundNodes: TreeNode<TTree>[] = [];
     this.walk((n) => {
       if (predicate(n)) {
         foundNodes.push(n);
@@ -684,7 +684,7 @@ export class TreeNode {
    * @param rightToLeft Optional. When true, searching will traverse the tree using depth-first right-to-left preorder traversal.
    * @returns The node with the provided id, or `undefined` if not found.
    */
-  public findById(id: any, idPropertyName = 'id', rightToLeft?: boolean): TreeNode | undefined {
+  public findById(id: any, idPropertyName = 'id', rightToLeft?: boolean): TreeNode<TTree> | undefined {
     return this.findFirst((node) => node.getData()[idPropertyName] === id, rightToLeft);
   }
 
@@ -700,7 +700,7 @@ export class TreeNode {
    * @param rightToLeft Optional. When true, it will traverse the tree using depth-first right-to-left preorder traversal.
    * @returns True if the traversal was aborted, false otherwise.
    */
-  public walk(visit: (node: TreeNode) => boolean | void, rightToLeft?: boolean): boolean {
+  public walk(visit: (node: TreeNode<TTree>) => boolean | void, rightToLeft?: boolean): boolean {
     let abort = !!visit(this);
     if (!abort) {
       let i = rightToLeft ? this.children.length - 1 : 0;
@@ -725,8 +725,8 @@ export class TreeNode {
    *
    * @returns An object containing the tree node data including all nested children.
    */
-  public toObject(): Record<string, any> {
-    const children: Record<string, any> = [];
+  public toObject(): TTree {
+    const children: TTree[] = [];
     const obj = { ...this.data, [this.childrenPropertyName]: children };
     this.children.forEach((child) => {
       children.push(child.toObject());
@@ -760,7 +760,7 @@ export class TreeNode {
    * @returns A deep clone of the tree node, including all children.
    * @throws An error if `JSON.stringify()` fails on the tree node.
    */
-  public clone(): TreeNode {
+  public clone(): TreeNode<TTree> {
     return TreeNode.fromJSON(this.toJSON(), this.options);
   }
 
@@ -784,13 +784,13 @@ export class TreeNode {
    *
    * @throws An error if JSON parsing fails.
    */
-  public static fromJSON(dataString: string, options: TreeNodeOptions = TreeNode.defaultTreeNodeOptions): TreeNode {
+  public static fromJSON(dataString: string, options: TreeNodeOptions = TreeNode.defaultTreeNodeOptions) {
     return new TreeNode(JSON.parse(dataString), options);
   }
 }
 
 /** A Tree simply extends TreeNode and can be used as the root node. */
-export class Tree extends TreeNode {}
+export class Tree<TTree extends Record<string, any>> extends TreeNode<TTree> {}
 
 /**
  * A function used to check for node equality.
