@@ -790,7 +790,7 @@ export class TreeNode<TTree extends Record<string, any> = Record<string, any>> {
 }
 
 /** A Tree simply extends TreeNode and can be used as the root node. */
-export class Tree<TTree extends Record<string, any>> extends TreeNode<TTree> {}
+export class Tree<TTree extends Record<string, any> = Record<string, any>> extends TreeNode<TTree> {}
 
 /**
  * A function used to check for node equality.
