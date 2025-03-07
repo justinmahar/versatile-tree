@@ -1,6 +1,6 @@
 {
   "name": "versatile-tree",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "coreVersion": "3.0.9",
   "author": "Justin Mahar <contact@justinmahar.com>",
   "description": "A highly versatile tree structure for JavaScript.",
